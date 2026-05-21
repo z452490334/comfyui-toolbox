@@ -20,33 +20,60 @@ import requests
 import torch
 from PIL import Image
 
-BASE_URL = "https://api.muapi.ai/api/v1"
+PLUGIN_DIR = os.path.dirname(os.path.abspath(__file__))
+PLUGIN_CONFIG_PATH = os.path.join(PLUGIN_DIR, "config.json")
+LEGACY_CONFIG_PATH = os.path.expanduser("~/.muapi/config.json")
+DEFAULT_BASE_URL = "https://api.muapi.ai/api/v1"
 POLL_INTERVAL = 5
 MAX_WAIT = 600
 
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
+def _load_config_value(key):
+    for config_path in (PLUGIN_CONFIG_PATH, LEGACY_CONFIG_PATH):
+        if os.path.isfile(config_path):
+            try:
+                import json as _json
+                with open(config_path, encoding="utf-8") as f:
+                    value = _json.load(f).get(key, "")
+                if value:
+                    return str(value).strip()
+            except Exception:
+                pass
+    return ""
+
+
 def _load_api_key(api_key_input):
     if api_key_input and api_key_input.strip():
         return api_key_input.strip()
-    config_path = os.path.expanduser("~/.muapi/config.json")
-    if os.path.isfile(config_path):
-        try:
-            import json as _json
-            with open(config_path) as f:
-                key = _json.load(f).get("api_key", "")
-            if key:
-                return key
-        except Exception:
-            pass
+    key = _load_config_value("api_key")
+    if key:
+        return key
     raise RuntimeError(
         "No API key found. Either paste your key into the api_key field, "
-        "or run `muapi auth configure --api-key YOUR_KEY` in a terminal."
+        f"create {PLUGIN_CONFIG_PATH}, or run "
+        "`muapi auth configure --api-key YOUR_KEY` in a terminal."
     )
 
 
-def _upload_image(api_key, image_tensor):
+def _load_base_url(base_url_input=""):
+    if base_url_input and base_url_input.strip():
+        return base_url_input.strip().rstrip("/")
+
+    for env_name in ("GPT_IMAGE2_BASE_URL", "MUAPI_BASE_URL"):
+        env_url = os.environ.get(env_name, "").strip()
+        if env_url:
+            return env_url.rstrip("/")
+
+    base_url = _load_config_value("base_url")
+    if base_url:
+        return base_url.rstrip("/")
+
+    return DEFAULT_BASE_URL
+
+
+def _upload_image(api_key, image_tensor, base_url):
     if image_tensor.dim() == 4:
         image_tensor = image_tensor[0]
     arr = (image_tensor.cpu().numpy() * 255).astype("uint8")
@@ -54,7 +81,7 @@ def _upload_image(api_key, image_tensor):
     Image.fromarray(arr, "RGB").save(buf, format="JPEG", quality=95)
     buf.seek(0)
     resp = requests.post(
-        f"{BASE_URL}/upload_file",
+        f"{base_url}/upload_file",
         headers={"x-api-key": api_key},
         files={"file": ("image.jpg", buf, "image/jpeg")},
         timeout=120,
@@ -70,9 +97,9 @@ def _url(data):
     return str(u)
 
 
-def _submit(api_key, endpoint, payload):
+def _submit(api_key, base_url, endpoint, payload):
     resp = requests.post(
-        f"{BASE_URL}/{endpoint}",
+        f"{base_url}/{endpoint}",
         headers={"x-api-key": api_key, "Content-Type": "application/json"},
         json=payload,
         timeout=60,
@@ -84,11 +111,11 @@ def _submit(api_key, endpoint, payload):
     return rid
 
 
-def _poll(api_key, request_id):
+def _poll(api_key, base_url, request_id):
     deadline = time.time() + MAX_WAIT
     while time.time() < deadline:
         resp = requests.get(
-            f"{BASE_URL}/predictions/{request_id}/result",
+            f"{base_url}/predictions/{request_id}/result",
             headers={"x-api-key": api_key},
             timeout=30,
         )
@@ -146,7 +173,7 @@ class GPTImage2ApiKey:
     """
     Store your MuAPI API key once and wire it to any GPT-Image-2 node.
     Alternatively, leave all api_key fields empty — nodes auto-read from
-    ~/.muapi/config.json (set via `muapi auth configure --api-key YOUR_KEY`).
+    this plugin's config.json, then ~/.muapi/config.json.
     """
 
     @classmethod
@@ -173,6 +200,36 @@ class GPTImage2ApiKey:
         return (_load_api_key(api_key),)
 
 
+class GPTImage2BaseUrl:
+    """
+    Provide a MuAPI-compatible API base URL.
+    Defaults to https://api.muapi.ai/api/v1 when left blank.
+    """
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "base_url": (
+                    "STRING",
+                    {
+                        "multiline": False,
+                        "default": DEFAULT_BASE_URL,
+                        "tooltip": "MuAPI-compatible API base URL, for example https://api.example.com/api/v1",
+                    },
+                ),
+            }
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("base_url",)
+    FUNCTION = "run"
+    CATEGORY = "🖼️ GPT-Image-2"
+
+    def run(self, base_url):
+        return (_load_base_url(base_url),)
+
+
 class GPTImage2TextToImage:
     """
     GPT-Image-2 Text-to-Image
@@ -196,6 +253,7 @@ class GPTImage2TextToImage:
             },
             "optional": {
                 "api_key": ("STRING", {"multiline": False, "default": ""}),
+                "base_url": ("STRING", {"multiline": False, "default": ""}),
             },
         }
 
@@ -204,12 +262,13 @@ class GPTImage2TextToImage:
     FUNCTION = "run"
     CATEGORY = "🖼️ GPT-Image-2"
 
-    def run(self, prompt, api_key=""):
+    def run(self, prompt, api_key="", base_url=""):
         api_key = _load_api_key(api_key)
+        base_url = _load_base_url(base_url)
         payload = {"prompt": prompt}
-        print("[GPTImage2 T2I] Submitting...")
-        rid = _submit(api_key, "gpt-image-2-text-to-image", payload)
-        result = _poll(api_key, rid)
+        print(f"[GPTImage2 T2I] Submitting to {base_url}...")
+        rid = _submit(api_key, base_url, "gpt-image-2-text-to-image", payload)
+        result = _poll(api_key, base_url, rid)
         url = _output_image_url(result)
         print(f"[GPTImage2 T2I] Done → {url}")
         image = _download_image(url)
@@ -243,6 +302,7 @@ class GPTImage2ImageToImage:
             },
             "optional": {
                 "api_key": ("STRING", {"multiline": False, "default": ""}),
+                "base_url": ("STRING", {"multiline": False, "default": ""}),
                 "image_1": ("IMAGE",),
                 "image_2": ("IMAGE",),
                 "image_3": ("IMAGE",),
@@ -264,6 +324,7 @@ class GPTImage2ImageToImage:
         self,
         prompt,
         api_key="",
+        base_url="",
         image_1=None,
         image_2=None,
         image_3=None,
@@ -275,20 +336,21 @@ class GPTImage2ImageToImage:
         image_9=None,
     ):
         api_key = _load_api_key(api_key)
+        base_url = _load_base_url(base_url)
         tensors = [image_1, image_2, image_3, image_4, image_5,
                    image_6, image_7, image_8, image_9]
         images_list = []
         for i, img in enumerate(tensors, 1):
             if img is not None:
                 print(f"[GPTImage2 I2I] Uploading image {i}...")
-                images_list.append(_upload_image(api_key, img))
+                images_list.append(_upload_image(api_key, img, base_url))
         if not images_list:
             raise ValueError("At least one input image is required.")
 
         payload = {"prompt": prompt, "images_list": images_list}
-        print(f"[GPTImage2 I2I] Submitting ({len(images_list)} image(s))...")
-        rid = _submit(api_key, "gpt-image-2-image-to-image", payload)
-        result = _poll(api_key, rid)
+        print(f"[GPTImage2 I2I] Submitting ({len(images_list)} image(s)) to {base_url}...")
+        rid = _submit(api_key, base_url, "gpt-image-2-image-to-image", payload)
+        result = _poll(api_key, base_url, rid)
         url = _output_image_url(result)
         print(f"[GPTImage2 I2I] Done → {url}")
         image = _download_image(url)
@@ -297,12 +359,14 @@ class GPTImage2ImageToImage:
 
 NODE_CLASS_MAPPINGS = {
     "GPTImage2ApiKey":        GPTImage2ApiKey,
+    "GPTImage2BaseUrl":       GPTImage2BaseUrl,
     "GPTImage2TextToImage":   GPTImage2TextToImage,
     "GPTImage2ImageToImage":  GPTImage2ImageToImage,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "GPTImage2ApiKey":        "🔑 GPT-Image-2 API Key",
+    "GPTImage2BaseUrl":       "🌐 GPT-Image-2 Base URL",
     "GPTImage2TextToImage":   "🖼️ GPT-Image-2 Text to Image",
     "GPTImage2ImageToImage":  "🖼️ GPT-Image-2 Image to Image",
 }

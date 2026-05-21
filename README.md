@@ -24,6 +24,7 @@ GPT-Image-2 is OpenAI's latest image generation model with native image editing 
 | Node | Description |
 |------|-------------|
 | 🔑 GPT-Image-2 API Key | Set your key once — wire to all nodes |
+| 🌐 GPT-Image-2 Base URL | Set a MuAPI-compatible API base URL for third-party providers |
 | 🖼️ GPT-Image-2 Text to Image | Generate an image from a text prompt |
 | 🖼️ GPT-Image-2 Image to Image | Edit or transform up to 9 reference images |
 
@@ -52,7 +53,8 @@ pip install -r gpt-image-2-comfyui/requirements.txt
 3. Add a **🔑 GPT-Image-2 API Key** node, paste your key, and wire its output to any generation node
 4. Write a prompt and hit **Queue Prompt**
 
-> **Tip:** If you use the [MuAPI CLI](https://github.com/SamurAIGPT/muapi-cli), run `muapi auth configure --api-key YOUR_KEY` once and all nodes will pick it up automatically — no need to paste the key anywhere.
+> **Tip:** You can put your key and base URL in this plugin's `config.json` so they are easy to find.
+> **Third-party API:** Add a **🌐 GPT-Image-2 Base URL** node or fill the `base_url` field on the generation nodes to use a MuAPI-compatible provider. The default is `https://api.muapi.ai/api/v1`.
 
 ---
 
@@ -60,13 +62,45 @@ pip install -r gpt-image-2-comfyui/requirements.txt
 
 ### 🔑 GPT-Image-2 API Key
 
-Set your muapi.ai API key once and wire the output to all generation nodes. Alternatively, leave every `api_key` field blank — nodes automatically read from `~/.muapi/config.json` if you've authenticated via the CLI.
+Set your muapi.ai API key once and wire the output to all generation nodes. Alternatively, leave every `api_key` field blank — nodes automatically read from this plugin's `config.json`, then fall back to `~/.muapi/config.json` for MuAPI CLI compatibility.
 
 | Field | Description |
 |-------|-------------|
 | `api_key` | Your muapi.ai API key |
 
 **Output:** `api_key` string (wire to generation nodes)
+
+---
+
+### 🌐 GPT-Image-2 Base URL
+
+Set a MuAPI-compatible API base URL once and wire the output to generation nodes. Leave blank to use `https://api.muapi.ai/api/v1`.
+
+The easiest persistent setup is to create `config.json` in this plugin directory:
+
+```json
+{
+  "api_key": "YOUR_KEY",
+  "base_url": "https://api.example.com/api/v1"
+}
+```
+
+The plugin reads config in this order:
+
+1. Node field input
+2. Environment variables
+3. This plugin's `config.json`
+4. `~/.muapi/config.json`
+5. Default MuAPI base URL
+
+You can also configure the base URL with either environment variable:
+
+```bash
+GPT_IMAGE2_BASE_URL=https://api.example.com/api/v1
+MUAPI_BASE_URL=https://api.example.com/api/v1
+```
+
+**Output:** `base_url` string (wire to generation nodes)
 
 ---
 
@@ -78,6 +112,7 @@ Generate a high-quality image from a text prompt.
 |-------|-------------|
 | `prompt` | Describe the image you want to generate |
 | `api_key` | *(optional)* API key — wire from the API Key node or leave blank |
+| `base_url` | *(optional)* MuAPI-compatible API base URL — wire from the Base URL node or leave blank |
 
 **Outputs:**
 
@@ -103,6 +138,7 @@ Edit or transform up to 9 reference images guided by a text prompt.
 | `prompt` | Describe the desired transformation or style |
 | `image_1` … `image_9` | *(optional)* Reference images to edit |
 | `api_key` | *(optional)* API key — wire from the API Key node or leave blank |
+| `base_url` | *(optional)* MuAPI-compatible API base URL — wire from the Base URL node or leave blank |
 
 **Outputs:**
 
@@ -119,15 +155,18 @@ Transform this product image into a premium e-commerce poster style.
 
 ---
 
-## API
+## API Compatibility
 
-All requests go through the [muapi.ai](https://muapi.ai) API. Get your API key from the dashboard.
+By default, all requests go through the [muapi.ai](https://muapi.ai) API. You can override the base URL for any third-party provider that implements the same MuAPI-compatible request and polling format:
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/api/v1/gpt-image-2-text-to-image` | POST | Submit a text-to-image request |
 | `/api/v1/gpt-image-2-image-to-image` | POST | Submit an image-to-image request |
+| `/api/v1/upload_file` | POST | Upload an input image for image-to-image |
 | `/api/v1/predictions/{request_id}/result` | GET | Poll for result |
+
+This project does not call OpenAI's official Image API directly. Official OpenAI-compatible providers use `/v1/images/generations` and `/v1/images/edits`, while these nodes use the MuAPI-compatible asynchronous endpoints above.
 
 ---
 
