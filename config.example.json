@@ -1,5 +1,7 @@
 {
   "api_key": "YOUR_KEY",
   "base_url": "https://api.openai.com/v1",
+  "jimeng_api_key": "YOUR_VOLCENGINE_ARK_KEY",
+  "jimeng_base_url": "https://ark.cn-beijing.volces.com/api/v3",
   "user_agent": "gpt-image-2-comfyui/1.0"
 }

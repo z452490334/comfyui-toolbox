@@ -26,6 +26,9 @@ GPT-Image-2 uses OpenAI-compatible GPT Image models with native image editing su
 | 🌐 GPT-Image-2 Base URL | Set an OpenAI-compatible API base URL for third-party providers |
 | 🖼️ GPT-Image-2 Text to Image | Generate an image from a text prompt |
 | 🖼️ GPT-Image-2 Image to Image | Edit or transform up to 16 reference images |
+| 🔑 Jimeng API Key | Set a Volcano Ark API key for Jimeng/Seedream nodes |
+| 🌐 Jimeng Base URL | Set a Volcano Ark-compatible API base URL |
+| 🖼️ Jimeng Seedream Image | Generate or edit images with exposed Seedream image parameters |
 
 ---
 
@@ -81,6 +84,8 @@ The easiest persistent setup is to create `config.json` in this plugin directory
 {
   "api_key": "YOUR_KEY",
   "base_url": "https://api.example.com/v1",
+  "jimeng_api_key": "YOUR_VOLCENGINE_ARK_KEY",
+  "jimeng_base_url": "https://ark.cn-beijing.volces.com/api/v3",
   "user_agent": "gpt-image-2-comfyui/1.0"
 }
 ```
@@ -100,6 +105,8 @@ OPENAI_BASE_URL=https://api.example.com/v1
 GPT_IMAGE2_BASE_URL=https://api.example.com/v1
 MUAPI_BASE_URL=https://api.example.com/v1
 OPENAI_USER_AGENT=gpt-image-2-comfyui/1.0
+JIMENG_API_KEY=your-volcano-ark-key
+JIMENG_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
 ```
 
 **Output:** `base_url` string (wire to generation nodes)
@@ -181,6 +188,34 @@ Edit or transform up to 16 reference images guided by a text prompt.
 ```
 Transform this product image into a premium e-commerce poster style.
 ```
+
+---
+
+### 🖼️ Jimeng Seedream Image
+
+Generate or edit images through Volcano Ark's Seedream image generation API. The node exposes the core API parameters directly, including model, size, response format, output format, watermark, seed, streaming, sequential image generation, web search, prompt optimization mode, and raw `extra_json` passthrough.
+
+| Field | Description |
+|-------|-------------|
+| `prompt` | Text instruction for generation or image editing |
+| `jimeng_api_key` | *(optional)* Volcano Ark API key — wire from the Jimeng API Key node or leave blank |
+| `base_url` | *(optional)* Volcano Ark-compatible base URL |
+| `model` | Seedream model ID, default `doubao-seedream-5-0-260128` |
+| `size` | `2K`, `3K`, `4K`, preset pixel sizes, or `custom` |
+| `custom_width`, `custom_height` | Used when `size` is `custom` |
+| `response_format` | `url` or `b64_json` |
+| `output_format` | `jpeg` or `png` |
+| `watermark` | Add the provider watermark when enabled |
+| `seed` | Reproducibility seed; `-1` omits the parameter |
+| `stream` | Request streaming image events |
+| `sequential_image_generation` | `disabled` or `auto` for grouped image output |
+| `max_images` | Maximum generated images for sequential output |
+| `enable_web_search` | Sends `tools: [{"type": "web_search"}]` |
+| `optimize_prompt_mode` | `standard`, `fast`, `auto`, or `disabled` |
+| `extra_json` | Raw JSON object merged into the request payload |
+| `image_1` … `image_14` | Optional reference images |
+
+**Outputs:** generated images as an IMAGE batch, newline-separated image URLs/data URLs, request ID, and raw JSON response.
 
 ---
 
