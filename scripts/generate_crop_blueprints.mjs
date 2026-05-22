@@ -3,7 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 
 const rootDir = path.resolve(import.meta.dirname, "..");
-const outDir = path.join(rootDir, "blueprints");
+const outDir = path.join(rootDir, "subgraphs");
 
 function coreProps(type) {
   return {
