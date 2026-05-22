@@ -23,6 +23,7 @@ PLUGIN_DIR = os.path.dirname(os.path.abspath(__file__))
 PLUGIN_CONFIG_PATH = os.path.join(PLUGIN_DIR, "config.json")
 LEGACY_CONFIG_PATH = os.path.expanduser("~/.muapi/config.json")
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
+DEFAULT_USER_AGENT = "gpt-image-2-comfyui/1.0"
 
 MODEL_OPTIONS = ["gpt-image-1.5", "gpt-image-1", "gpt-image-1-mini"]
 SIZE_OPTIONS = ["auto", "1024x1024", "1536x1024", "1024x1536"]
@@ -80,8 +81,23 @@ def _load_base_url(base_url_input=""):
     return DEFAULT_BASE_URL
 
 
+def _load_user_agent():
+    env_user_agent = os.environ.get("OPENAI_USER_AGENT", "").strip()
+    if env_user_agent:
+        return env_user_agent
+
+    user_agent = _load_config_value("user_agent")
+    if user_agent:
+        return user_agent
+
+    return DEFAULT_USER_AGENT
+
+
 def _auth_headers(api_key):
-    return {"Authorization": f"Bearer {api_key}"}
+    return {
+        "Authorization": f"Bearer {api_key}",
+        "User-Agent": _load_user_agent(),
+    }
 
 
 def _image_options_payload(
@@ -242,7 +258,7 @@ def _download_image(url):
         img = Image.open(io.BytesIO(base64.b64decode(b64_data))).convert("RGB")
         arr = np.array(img).astype(np.float32) / 255.0
         return torch.from_numpy(arr).unsqueeze(0)
-    r = requests.get(url, timeout=120)
+    r = requests.get(url, headers={"User-Agent": _load_user_agent()}, timeout=120)
     r.raise_for_status()
     img = Image.open(io.BytesIO(r.content)).convert("RGB")
     arr = np.array(img).astype(np.float32) / 255.0

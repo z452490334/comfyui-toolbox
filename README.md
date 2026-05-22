@@ -80,7 +80,8 @@ The easiest persistent setup is to create `config.json` in this plugin directory
 ```json
 {
   "api_key": "YOUR_KEY",
-  "base_url": "https://api.example.com/v1"
+  "base_url": "https://api.example.com/v1",
+  "user_agent": "gpt-image-2-comfyui/1.0"
 }
 ```
 
@@ -98,9 +99,12 @@ You can also configure the base URL with either environment variable:
 OPENAI_BASE_URL=https://api.example.com/v1
 GPT_IMAGE2_BASE_URL=https://api.example.com/v1
 MUAPI_BASE_URL=https://api.example.com/v1
+OPENAI_USER_AGENT=gpt-image-2-comfyui/1.0
 ```
 
 **Output:** `base_url` string (wire to generation nodes)
+
+The optional `user_agent` config value is sent as the `User-Agent` header on API requests and image URL downloads. Set `OPENAI_USER_AGENT` to override it without editing the config file.
 
 ---
 
