@@ -1,0 +1,7164 @@
+{
+  "revision": 0,
+  "last_node_id": 1,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "56ea3ffb-0a76-5645-bea7-e2ec27f9f059",
+      "pos": [
+        -2620,
+        1620
+      ],
+      "size": [
+        230,
+        610
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "row_1_col_1",
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_1_col_2",
+          "localized_name": "IMAGE_1",
+          "name": "IMAGE_1",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_1_col_3",
+          "localized_name": "IMAGE_2",
+          "name": "IMAGE_2",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_1_col_4",
+          "localized_name": "IMAGE_3",
+          "name": "IMAGE_3",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_1_col_5",
+          "localized_name": "IMAGE_4",
+          "name": "IMAGE_4",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_2_col_1",
+          "localized_name": "IMAGE_5",
+          "name": "IMAGE_5",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_2_col_2",
+          "localized_name": "IMAGE_6",
+          "name": "IMAGE_6",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_2_col_3",
+          "localized_name": "IMAGE_7",
+          "name": "IMAGE_7",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_2_col_4",
+          "localized_name": "IMAGE_8",
+          "name": "IMAGE_8",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_2_col_5",
+          "localized_name": "IMAGE_9",
+          "name": "IMAGE_9",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_3_col_1",
+          "localized_name": "IMAGE_10",
+          "name": "IMAGE_10",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_3_col_2",
+          "localized_name": "IMAGE_11",
+          "name": "IMAGE_11",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_3_col_3",
+          "localized_name": "IMAGE_12",
+          "name": "IMAGE_12",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_3_col_4",
+          "localized_name": "IMAGE_13",
+          "name": "IMAGE_13",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_3_col_5",
+          "localized_name": "IMAGE_14",
+          "name": "IMAGE_14",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_4_col_1",
+          "localized_name": "IMAGE_15",
+          "name": "IMAGE_15",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_4_col_2",
+          "localized_name": "IMAGE_16",
+          "name": "IMAGE_16",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_4_col_3",
+          "localized_name": "IMAGE_17",
+          "name": "IMAGE_17",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_4_col_4",
+          "localized_name": "IMAGE_18",
+          "name": "IMAGE_18",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_4_col_5",
+          "localized_name": "IMAGE_19",
+          "name": "IMAGE_19",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_5_col_1",
+          "localized_name": "IMAGE_20",
+          "name": "IMAGE_20",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_5_col_2",
+          "localized_name": "IMAGE_21",
+          "name": "IMAGE_21",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_5_col_3",
+          "localized_name": "IMAGE_22",
+          "name": "IMAGE_22",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_5_col_4",
+          "localized_name": "IMAGE_23",
+          "name": "IMAGE_23",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "row_5_col_5",
+          "localized_name": "IMAGE_24",
+          "name": "IMAGE_24",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "label": "images",
+          "localized_name": "IMAGE_25",
+          "name": "IMAGE_25",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "56ea3ffb-0a76-5645-bea7-e2ec27f9f059"
+      },
+      "title": "Crop Images 5x5"
+    }
+  ],
+  "links": [],
+  "version": 0.4,
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "56ea3ffb-0a76-5645-bea7-e2ec27f9f059",
+        "version": 1,
+        "state": {
+          "lastGroupId": 1,
+          "lastNodeId": 63,
+          "lastLinkId": 206,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Crop Images 5x5",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            -220,
+            320,
+            120,
+            60
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            5600,
+            60,
+            140,
+            560
+          ]
+        },
+        "inputs": [
+          {
+            "id": "4c953020-4dc5-52a6-952c-ceee8efbf03a",
+            "name": "image",
+            "type": "IMAGE",
+            "linkIds": [
+              1,
+              19,
+              25,
+              31,
+              37,
+              43,
+              49,
+              56,
+              63,
+              70,
+              77,
+              83,
+              90,
+              97,
+              104,
+              111,
+              117,
+              124,
+              131,
+              138,
+              145,
+              151,
+              158,
+              165,
+              172,
+              179
+            ],
+            "localized_name": "image",
+            "pos": [
+              -120,
+              340
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "42075cfa-6d98-5daa-8b07-8e1b54ade7ec",
+            "name": "IMAGE",
+            "type": "IMAGE",
+            "linkIds": [
+              20
+            ],
+            "localized_name": "IMAGE",
+            "label": "row_1_col_1",
+            "pos": [
+              5620,
+              80
+            ]
+          },
+          {
+            "id": "2f918b31-beb4-5033-a634-ac36e2e0df23",
+            "name": "IMAGE_1",
+            "type": "IMAGE",
+            "linkIds": [
+              26
+            ],
+            "localized_name": "IMAGE_1",
+            "label": "row_1_col_2",
+            "pos": [
+              5620,
+              100
+            ]
+          },
+          {
+            "id": "718a5721-152f-59a4-ad58-9f9dd967c6ab",
+            "name": "IMAGE_2",
+            "type": "IMAGE",
+            "linkIds": [
+              32
+            ],
+            "localized_name": "IMAGE_2",
+            "label": "row_1_col_3",
+            "pos": [
+              5620,
+              120
+            ]
+          },
+          {
+            "id": "2293102c-0e68-5d38-a61f-961d45cee008",
+            "name": "IMAGE_3",
+            "type": "IMAGE",
+            "linkIds": [
+              38
+            ],
+            "localized_name": "IMAGE_3",
+            "label": "row_1_col_4",
+            "pos": [
+              5620,
+              140
+            ]
+          },
+          {
+            "id": "c3270555-a183-5064-98e3-43d94172a0df",
+            "name": "IMAGE_4",
+            "type": "IMAGE",
+            "linkIds": [
+              44
+            ],
+            "localized_name": "IMAGE_4",
+            "label": "row_1_col_5",
+            "pos": [
+              5620,
+              160
+            ]
+          },
+          {
+            "id": "bff5d9ad-017c-5c42-8c6e-e1e3694a2021",
+            "name": "IMAGE_5",
+            "type": "IMAGE",
+            "linkIds": [
+              50
+            ],
+            "localized_name": "IMAGE_5",
+            "label": "row_2_col_1",
+            "pos": [
+              5620,
+              180
+            ]
+          },
+          {
+            "id": "c085669c-987d-5e97-88e2-b4af4c1c75ad",
+            "name": "IMAGE_6",
+            "type": "IMAGE",
+            "linkIds": [
+              57
+            ],
+            "localized_name": "IMAGE_6",
+            "label": "row_2_col_2",
+            "pos": [
+              5620,
+              200
+            ]
+          },
+          {
+            "id": "2df62ea1-eed4-50ba-b5a4-92acff3f63c6",
+            "name": "IMAGE_7",
+            "type": "IMAGE",
+            "linkIds": [
+              64
+            ],
+            "localized_name": "IMAGE_7",
+            "label": "row_2_col_3",
+            "pos": [
+              5620,
+              220
+            ]
+          },
+          {
+            "id": "ab38b72a-e97d-5277-81d1-714546f3d7aa",
+            "name": "IMAGE_8",
+            "type": "IMAGE",
+            "linkIds": [
+              71
+            ],
+            "localized_name": "IMAGE_8",
+            "label": "row_2_col_4",
+            "pos": [
+              5620,
+              240
+            ]
+          },
+          {
+            "id": "4902c210-fa77-5dcd-9a6b-2b61b6a24e0a",
+            "name": "IMAGE_9",
+            "type": "IMAGE",
+            "linkIds": [
+              78
+            ],
+            "localized_name": "IMAGE_9",
+            "label": "row_2_col_5",
+            "pos": [
+              5620,
+              260
+            ]
+          },
+          {
+            "id": "83abd7a7-c678-5022-9d9a-e164d4a99a17",
+            "name": "IMAGE_10",
+            "type": "IMAGE",
+            "linkIds": [
+              84
+            ],
+            "localized_name": "IMAGE_10",
+            "label": "row_3_col_1",
+            "pos": [
+              5620,
+              280
+            ]
+          },
+          {
+            "id": "eb55363e-cac5-59c8-93ca-05bcfa291b14",
+            "name": "IMAGE_11",
+            "type": "IMAGE",
+            "linkIds": [
+              91
+            ],
+            "localized_name": "IMAGE_11",
+            "label": "row_3_col_2",
+            "pos": [
+              5620,
+              300
+            ]
+          },
+          {
+            "id": "e43239aa-5144-5355-9e3b-6083618a04e3",
+            "name": "IMAGE_12",
+            "type": "IMAGE",
+            "linkIds": [
+              98
+            ],
+            "localized_name": "IMAGE_12",
+            "label": "row_3_col_3",
+            "pos": [
+              5620,
+              320
+            ]
+          },
+          {
+            "id": "f143a7e8-c51a-57bd-a0ae-6c02067c2d53",
+            "name": "IMAGE_13",
+            "type": "IMAGE",
+            "linkIds": [
+              105
+            ],
+            "localized_name": "IMAGE_13",
+            "label": "row_3_col_4",
+            "pos": [
+              5620,
+              340
+            ]
+          },
+          {
+            "id": "5dd3d075-3e03-59e6-9d12-9e56a53fb437",
+            "name": "IMAGE_14",
+            "type": "IMAGE",
+            "linkIds": [
+              112
+            ],
+            "localized_name": "IMAGE_14",
+            "label": "row_3_col_5",
+            "pos": [
+              5620,
+              360
+            ]
+          },
+          {
+            "id": "f85d9787-708d-5980-b007-4d7e2a3cfe90",
+            "name": "IMAGE_15",
+            "type": "IMAGE",
+            "linkIds": [
+              118
+            ],
+            "localized_name": "IMAGE_15",
+            "label": "row_4_col_1",
+            "pos": [
+              5620,
+              380
+            ]
+          },
+          {
+            "id": "f6999c4f-473d-52a6-a36e-7942ecb5414a",
+            "name": "IMAGE_16",
+            "type": "IMAGE",
+            "linkIds": [
+              125
+            ],
+            "localized_name": "IMAGE_16",
+            "label": "row_4_col_2",
+            "pos": [
+              5620,
+              400
+            ]
+          },
+          {
+            "id": "cc21bfe5-cf68-579a-87da-9ccda5270142",
+            "name": "IMAGE_17",
+            "type": "IMAGE",
+            "linkIds": [
+              132
+            ],
+            "localized_name": "IMAGE_17",
+            "label": "row_4_col_3",
+            "pos": [
+              5620,
+              420
+            ]
+          },
+          {
+            "id": "6dc4a9df-f4dd-5dc6-a6b7-d49cbd3b1b2d",
+            "name": "IMAGE_18",
+            "type": "IMAGE",
+            "linkIds": [
+              139
+            ],
+            "localized_name": "IMAGE_18",
+            "label": "row_4_col_4",
+            "pos": [
+              5620,
+              440
+            ]
+          },
+          {
+            "id": "404de686-3b92-52d4-876b-f581903ce871",
+            "name": "IMAGE_19",
+            "type": "IMAGE",
+            "linkIds": [
+              146
+            ],
+            "localized_name": "IMAGE_19",
+            "label": "row_4_col_5",
+            "pos": [
+              5620,
+              460
+            ]
+          },
+          {
+            "id": "b0f707b7-5c10-5e7f-914e-15801f813b0d",
+            "name": "IMAGE_20",
+            "type": "IMAGE",
+            "linkIds": [
+              152
+            ],
+            "localized_name": "IMAGE_20",
+            "label": "row_5_col_1",
+            "pos": [
+              5620,
+              480
+            ]
+          },
+          {
+            "id": "52569c06-0032-5b81-a903-91863d5fab45",
+            "name": "IMAGE_21",
+            "type": "IMAGE",
+            "linkIds": [
+              159
+            ],
+            "localized_name": "IMAGE_21",
+            "label": "row_5_col_2",
+            "pos": [
+              5620,
+              500
+            ]
+          },
+          {
+            "id": "a32d386a-1452-53c7-ab11-5283638c5b17",
+            "name": "IMAGE_22",
+            "type": "IMAGE",
+            "linkIds": [
+              166
+            ],
+            "localized_name": "IMAGE_22",
+            "label": "row_5_col_3",
+            "pos": [
+              5620,
+              520
+            ]
+          },
+          {
+            "id": "d346c728-227e-5b42-a6a0-a8a6c1da456e",
+            "name": "IMAGE_23",
+            "type": "IMAGE",
+            "linkIds": [
+              173
+            ],
+            "localized_name": "IMAGE_23",
+            "label": "row_5_col_4",
+            "pos": [
+              5620,
+              540
+            ]
+          },
+          {
+            "id": "70e8aacf-17c5-5af4-8b5e-9ff80280efe9",
+            "name": "IMAGE_24",
+            "type": "IMAGE",
+            "linkIds": [
+              180
+            ],
+            "localized_name": "IMAGE_24",
+            "label": "row_5_col_5",
+            "pos": [
+              5620,
+              560
+            ]
+          },
+          {
+            "id": "0e27d02c-8cba-56f6-b934-1f1342229286",
+            "name": "IMAGE_25",
+            "type": "IMAGE",
+            "linkIds": [
+              206
+            ],
+            "localized_name": "IMAGE_25",
+            "label": "images",
+            "pos": [
+              5620,
+              580
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 1,
+            "type": "GetImageSize",
+            "pos": [
+              0,
+              280
+            ],
+            "size": [
+              230,
+              120
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 1
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "links": [
+                  2,
+                  12
+                ]
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "links": [
+                  4,
+                  14
+                ]
+              },
+              {
+                "localized_name": "batch_size",
+                "name": "batch_size",
+                "type": "INT",
+                "links": null
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "GetImageSize"
+            }
+          },
+          {
+            "id": 2,
+            "type": "PrimitiveInt",
+            "pos": [
+              0,
+              450
+            ],
+            "size": [
+              230,
+              110
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "value",
+                "name": "value",
+                "type": "INT",
+                "widget": {
+                  "name": "value"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  3,
+                  5
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveInt"
+            },
+            "widgets_values": [
+              5,
+              "fixed"
+            ]
+          },
+          {
+            "id": 3,
+            "type": "ComfyMathExpression",
+            "pos": [
+              310,
+              180
+            ],
+            "size": [
+              370,
+              190
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT",
+                "label": "a",
+                "link": 2
+              },
+              {
+                "localized_name": "values.b",
+                "name": "values.b",
+                "type": "FLOAT,INT",
+                "label": "b",
+                "shape": 7,
+                "link": 3
+              },
+              {
+                "localized_name": "values.c",
+                "name": "values.c",
+                "type": "FLOAT,INT",
+                "label": "c",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "expression",
+                "name": "expression",
+                "type": "STRING",
+                "widget": {
+                  "name": "expression"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  6,
+                  7,
+                  8,
+                  16,
+                  21,
+                  22,
+                  28,
+                  34,
+                  46,
+                  51,
+                  53,
+                  60,
+                  67,
+                  80,
+                  85,
+                  87,
+                  94,
+                  101,
+                  114,
+                  119,
+                  121,
+                  128,
+                  135,
+                  148,
+                  153,
+                  155,
+                  162,
+                  169
+                ]
+              }
+            ],
+            "title": "Math Expression (Width)",
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "max(1, int(a/b))"
+            ]
+          },
+          {
+            "id": 4,
+            "type": "ComfyMathExpression",
+            "pos": [
+              310,
+              430
+            ],
+            "size": [
+              370,
+              190
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT",
+                "label": "a",
+                "link": 4
+              },
+              {
+                "localized_name": "values.b",
+                "name": "values.b",
+                "type": "FLOAT,INT",
+                "label": "b",
+                "shape": 7,
+                "link": 5
+              },
+              {
+                "localized_name": "values.c",
+                "name": "values.c",
+                "type": "FLOAT,INT",
+                "label": "c",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "expression",
+                "name": "expression",
+                "type": "STRING",
+                "widget": {
+                  "name": "expression"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  9,
+                  10,
+                  11,
+                  17,
+                  23,
+                  29,
+                  35,
+                  41,
+                  45,
+                  47,
+                  52,
+                  54,
+                  59,
+                  61,
+                  66,
+                  68,
+                  73,
+                  75,
+                  81,
+                  88,
+                  95,
+                  102,
+                  109,
+                  115,
+                  122,
+                  129,
+                  136,
+                  143
+                ]
+              }
+            ],
+            "title": "Math Expression (Height)",
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "max(1, int(a/b))"
+            ]
+          },
+          {
+            "id": 5,
+            "type": "ComfyMathExpression",
+            "pos": [
+              760,
+              320
+            ],
+            "size": [
+              300,
+              160
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT",
+                "label": "a",
+                "link": 6
+              },
+              {
+                "localized_name": "values.b",
+                "name": "values.b",
+                "type": "FLOAT,INT",
+                "label": "b",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "values.c",
+                "name": "values.c",
+                "type": "FLOAT,INT",
+                "label": "c",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "expression",
+                "name": "expression",
+                "type": "STRING",
+                "widget": {
+                  "name": "expression"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  27,
+                  58,
+                  92,
+                  126,
+                  160
+                ]
+              }
+            ],
+            "title": "Math Expression (x2)",
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "2 * a"
+            ]
+          },
+          {
+            "id": 6,
+            "type": "ComfyMathExpression",
+            "pos": [
+              760,
+              450
+            ],
+            "size": [
+              300,
+              160
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT",
+                "label": "a",
+                "link": 7
+              },
+              {
+                "localized_name": "values.b",
+                "name": "values.b",
+                "type": "FLOAT,INT",
+                "label": "b",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "values.c",
+                "name": "values.c",
+                "type": "FLOAT,INT",
+                "label": "c",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "expression",
+                "name": "expression",
+                "type": "STRING",
+                "widget": {
+                  "name": "expression"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  33,
+                  65,
+                  99,
+                  133,
+                  167
+                ]
+              }
+            ],
+            "title": "Math Expression (x3)",
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "3 * a"
+            ]
+          },
+          {
+            "id": 7,
+            "type": "ComfyMathExpression",
+            "pos": [
+              760,
+              580
+            ],
+            "size": [
+              300,
+              160
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT",
+                "label": "a",
+                "link": 8
+              },
+              {
+                "localized_name": "values.b",
+                "name": "values.b",
+                "type": "FLOAT,INT",
+                "label": "b",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "values.c",
+                "name": "values.c",
+                "type": "FLOAT,INT",
+                "label": "c",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "expression",
+                "name": "expression",
+                "type": "STRING",
+                "widget": {
+                  "name": "expression"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  13,
+                  39,
+                  72,
+                  106,
+                  140,
+                  174
+                ]
+              }
+            ],
+            "title": "Math Expression (x4)",
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "4 * a"
+            ]
+          },
+          {
+            "id": 8,
+            "type": "ComfyMathExpression",
+            "pos": [
+              760,
+              700
+            ],
+            "size": [
+              300,
+              160
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT",
+                "label": "a",
+                "link": 9
+              },
+              {
+                "localized_name": "values.b",
+                "name": "values.b",
+                "type": "FLOAT,INT",
+                "label": "b",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "values.c",
+                "name": "values.c",
+                "type": "FLOAT,INT",
+                "label": "c",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "expression",
+                "name": "expression",
+                "type": "STRING",
+                "widget": {
+                  "name": "expression"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  79,
+                  86,
+                  93,
+                  100,
+                  107
+                ]
+              }
+            ],
+            "title": "Math Expression (y2)",
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "2 * a"
+            ]
+          },
+          {
+            "id": 9,
+            "type": "ComfyMathExpression",
+            "pos": [
+              760,
+              830
+            ],
+            "size": [
+              300,
+              160
+            ],
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT",
+                "label": "a",
+                "link": 10
+              },
+              {
+                "localized_name": "values.b",
+                "name": "values.b",
+                "type": "FLOAT,INT",
+                "label": "b",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "values.c",
+                "name": "values.c",
+                "type": "FLOAT,INT",
+                "label": "c",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "expression",
+                "name": "expression",
+                "type": "STRING",
+                "widget": {
+                  "name": "expression"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  113,
+                  120,
+                  127,
+                  134,
+                  141
+                ]
+              }
+            ],
+            "title": "Math Expression (y3)",
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "3 * a"
+            ]
+          },
+          {
+            "id": 10,
+            "type": "ComfyMathExpression",
+            "pos": [
+              760,
+              960
+            ],
+            "size": [
+              300,
+              160
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT",
+                "label": "a",
+                "link": 11
+              },
+              {
+                "localized_name": "values.b",
+                "name": "values.b",
+                "type": "FLOAT,INT",
+                "label": "b",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "values.c",
+                "name": "values.c",
+                "type": "FLOAT,INT",
+                "label": "c",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "expression",
+                "name": "expression",
+                "type": "STRING",
+                "widget": {
+                  "name": "expression"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  15,
+                  147,
+                  154,
+                  161,
+                  168,
+                  175
+                ]
+              }
+            ],
+            "title": "Math Expression (y4)",
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "4 * a"
+            ]
+          },
+          {
+            "id": 11,
+            "type": "ComfyMathExpression",
+            "pos": [
+              1120,
+              760
+            ],
+            "size": [
+              370,
+              190
+            ],
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT",
+                "label": "a",
+                "link": 12
+              },
+              {
+                "localized_name": "values.b",
+                "name": "values.b",
+                "type": "FLOAT,INT",
+                "label": "b",
+                "shape": 7,
+                "link": 13
+              },
+              {
+                "localized_name": "values.c",
+                "name": "values.c",
+                "type": "FLOAT,INT",
+                "label": "c",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "expression",
+                "name": "expression",
+                "type": "STRING",
+                "widget": {
+                  "name": "expression"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  40,
+                  74,
+                  108,
+                  142,
+                  176
+                ]
+              }
+            ],
+            "title": "Math Expression (Right Width)",
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "max(1, a - b)"
+            ]
+          },
+          {
+            "id": 12,
+            "type": "ComfyMathExpression",
+            "pos": [
+              1120,
+              960
+            ],
+            "size": [
+              370,
+              190
+            ],
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT",
+                "label": "a",
+                "link": 14
+              },
+              {
+                "localized_name": "values.b",
+                "name": "values.b",
+                "type": "FLOAT,INT",
+                "label": "b",
+                "shape": 7,
+                "link": 15
+              },
+              {
+                "localized_name": "values.c",
+                "name": "values.c",
+                "type": "FLOAT,INT",
+                "label": "c",
+                "shape": 7,
+                "link": null
+              },
+              {
+                "localized_name": "expression",
+                "name": "expression",
+                "type": "STRING",
+                "widget": {
+                  "name": "expression"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  149,
+                  156,
+                  163,
+                  170,
+                  177
+                ]
+              }
+            ],
+            "title": "Math Expression (Bottom Height)",
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "max(1, a - b)"
+            ]
+          },
+          {
+            "id": 13,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              1540,
+              190
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 16
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 17
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  18
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 14,
+            "type": "ImageCropV2",
+            "pos": [
+              1860,
+              60
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 19
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 18
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  20,
+                  181
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 15,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              1900,
+              190
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 21
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 22
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 23
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  24
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 16,
+            "type": "ImageCropV2",
+            "pos": [
+              2220,
+              60
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 25
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 24
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  26,
+                  182
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 17,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2260,
+              190
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 27
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 28
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 29
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  30
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 18,
+            "type": "ImageCropV2",
+            "pos": [
+              2580,
+              60
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 18,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 31
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 30
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  32,
+                  183
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 19,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2620,
+              190
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 19,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 33
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 34
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 35
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  36
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 20,
+            "type": "ImageCropV2",
+            "pos": [
+              2940,
+              60
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 20,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 37
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 36
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  38,
+                  184
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 21,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2980,
+              190
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 21,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 39
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 40
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 41
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  42
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 22,
+            "type": "ImageCropV2",
+            "pos": [
+              3300,
+              60
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 22,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 43
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 42
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  44,
+                  185
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 23,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              1540,
+              750
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 23,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 45
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 46
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 47
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  48
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 24,
+            "type": "ImageCropV2",
+            "pos": [
+              1860,
+              620
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 24,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 49
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 48
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  50,
+                  186
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 25,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              1900,
+              750
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 25,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 51
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 52
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 53
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 54
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  55
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 26,
+            "type": "ImageCropV2",
+            "pos": [
+              2220,
+              620
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 26,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 56
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 55
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  57,
+                  187
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 27,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2260,
+              750
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 27,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 58
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 59
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 60
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 61
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  62
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 28,
+            "type": "ImageCropV2",
+            "pos": [
+              2580,
+              620
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 28,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 63
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 62
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  64,
+                  188
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 29,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2620,
+              750
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 29,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 65
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 66
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 67
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 68
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  69
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 30,
+            "type": "ImageCropV2",
+            "pos": [
+              2940,
+              620
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 30,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 70
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 69
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  71,
+                  189
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 31,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2980,
+              750
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 31,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 72
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 73
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 74
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 75
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  76
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 32,
+            "type": "ImageCropV2",
+            "pos": [
+              3300,
+              620
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 32,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 77
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 76
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  78,
+                  190
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 33,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              1540,
+              1310
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 33,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 79
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 80
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 81
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  82
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 34,
+            "type": "ImageCropV2",
+            "pos": [
+              1860,
+              1180
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 34,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 83
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 82
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  84,
+                  191
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 35,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              1900,
+              1310
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 35,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 85
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 86
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 87
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 88
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  89
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 36,
+            "type": "ImageCropV2",
+            "pos": [
+              2220,
+              1180
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 36,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 90
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 89
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  91,
+                  192
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 37,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2260,
+              1310
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 37,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 92
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 93
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 94
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 95
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  96
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 38,
+            "type": "ImageCropV2",
+            "pos": [
+              2580,
+              1180
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 38,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 97
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 96
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  98,
+                  193
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 39,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2620,
+              1310
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 39,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 99
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 100
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 101
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 102
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  103
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 40,
+            "type": "ImageCropV2",
+            "pos": [
+              2940,
+              1180
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 40,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 104
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 103
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  105,
+                  194
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 41,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2980,
+              1310
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 41,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 106
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 107
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 108
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 109
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  110
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 42,
+            "type": "ImageCropV2",
+            "pos": [
+              3300,
+              1180
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 42,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 111
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 110
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  112,
+                  195
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 43,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              1540,
+              1870
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 43,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 113
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 114
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 115
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  116
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 44,
+            "type": "ImageCropV2",
+            "pos": [
+              1860,
+              1740
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 44,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 117
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 116
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  118,
+                  196
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 45,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              1900,
+              1870
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 45,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 119
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 120
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 121
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 122
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  123
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 46,
+            "type": "ImageCropV2",
+            "pos": [
+              2220,
+              1740
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 46,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 124
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 123
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  125,
+                  197
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 47,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2260,
+              1870
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 47,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 126
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 127
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 128
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 129
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  130
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 48,
+            "type": "ImageCropV2",
+            "pos": [
+              2580,
+              1740
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 48,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 131
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 130
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  132,
+                  198
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 49,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2620,
+              1870
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 49,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 133
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 134
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 135
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 136
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  137
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 50,
+            "type": "ImageCropV2",
+            "pos": [
+              2940,
+              1740
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 50,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 138
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 137
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  139,
+                  199
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 51,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2980,
+              1870
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 51,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 140
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 141
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 142
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 143
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  144
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 52,
+            "type": "ImageCropV2",
+            "pos": [
+              3300,
+              1740
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 52,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 145
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 144
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  146,
+                  200
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 53,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              1540,
+              2430
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 53,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 147
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 148
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 149
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  150
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 54,
+            "type": "ImageCropV2",
+            "pos": [
+              1860,
+              2300
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 54,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 151
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 150
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  152,
+                  201
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 55,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              1900,
+              2430
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 55,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 153
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 154
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 155
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 156
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  157
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 56,
+            "type": "ImageCropV2",
+            "pos": [
+              2220,
+              2300
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 56,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 158
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 157
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  159,
+                  202
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 57,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2260,
+              2430
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 57,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 160
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 161
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 162
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 163
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  164
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 58,
+            "type": "ImageCropV2",
+            "pos": [
+              2580,
+              2300
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 58,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 165
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 164
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  166,
+                  203
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 59,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2620,
+              2430
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 59,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 167
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 168
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 169
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 170
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  171
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 60,
+            "type": "ImageCropV2",
+            "pos": [
+              2940,
+              2300
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 60,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 172
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 171
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  173,
+                  204
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 61,
+            "type": "PrimitiveBoundingBox",
+            "pos": [
+              2980,
+              2430
+            ],
+            "size": [
+              270,
+              200
+            ],
+            "flags": {},
+            "order": 61,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "x",
+                "name": "x",
+                "type": "INT",
+                "widget": {
+                  "name": "x"
+                },
+                "link": 174
+              },
+              {
+                "localized_name": "y",
+                "name": "y",
+                "type": "INT",
+                "widget": {
+                  "name": "y"
+                },
+                "link": 175
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 176
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 177
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOUNDING_BOX",
+                "name": "BOUNDING_BOX",
+                "type": "BOUNDING_BOX",
+                "links": [
+                  178
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "PrimitiveBoundingBox"
+            },
+            "widgets_values": [
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 62,
+            "type": "ImageCropV2",
+            "pos": [
+              3300,
+              2300
+            ],
+            "size": [
+              300,
+              480
+            ],
+            "flags": {},
+            "order": 62,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 179
+              },
+              {
+                "localized_name": "crop_region",
+                "name": "crop_region",
+                "type": "BOUNDING_BOX",
+                "widget": {
+                  "name": "crop_region"
+                },
+                "link": 178
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  180,
+                  205
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "ImageCropV2"
+            },
+            "widgets_values": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 512,
+                "height": 512
+              },
+              0,
+              0,
+              512,
+              512
+            ]
+          },
+          {
+            "id": 63,
+            "type": "BatchImagesNode",
+            "pos": [
+              5140,
+              240
+            ],
+            "size": [
+              230,
+              610
+            ],
+            "flags": {},
+            "order": 63,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "images.image0",
+                "name": "images.image0",
+                "type": "IMAGE",
+                "label": "image0",
+                "link": 181
+              },
+              {
+                "localized_name": "images.image1",
+                "name": "images.image1",
+                "type": "IMAGE",
+                "label": "image1",
+                "link": 182
+              },
+              {
+                "localized_name": "images.image2",
+                "name": "images.image2",
+                "type": "IMAGE",
+                "label": "image2",
+                "shape": 7,
+                "link": 183
+              },
+              {
+                "localized_name": "images.image3",
+                "name": "images.image3",
+                "type": "IMAGE",
+                "label": "image3",
+                "shape": 7,
+                "link": 184
+              },
+              {
+                "localized_name": "images.image4",
+                "name": "images.image4",
+                "type": "IMAGE",
+                "label": "image4",
+                "shape": 7,
+                "link": 185
+              },
+              {
+                "localized_name": "images.image5",
+                "name": "images.image5",
+                "type": "IMAGE",
+                "label": "image5",
+                "shape": 7,
+                "link": 186
+              },
+              {
+                "localized_name": "images.image6",
+                "name": "images.image6",
+                "type": "IMAGE",
+                "label": "image6",
+                "shape": 7,
+                "link": 187
+              },
+              {
+                "localized_name": "images.image7",
+                "name": "images.image7",
+                "type": "IMAGE",
+                "label": "image7",
+                "shape": 7,
+                "link": 188
+              },
+              {
+                "localized_name": "images.image8",
+                "name": "images.image8",
+                "type": "IMAGE",
+                "label": "image8",
+                "shape": 7,
+                "link": 189
+              },
+              {
+                "localized_name": "images.image9",
+                "name": "images.image9",
+                "type": "IMAGE",
+                "label": "image9",
+                "shape": 7,
+                "link": 190
+              },
+              {
+                "localized_name": "images.image10",
+                "name": "images.image10",
+                "type": "IMAGE",
+                "label": "image10",
+                "shape": 7,
+                "link": 191
+              },
+              {
+                "localized_name": "images.image11",
+                "name": "images.image11",
+                "type": "IMAGE",
+                "label": "image11",
+                "shape": 7,
+                "link": 192
+              },
+              {
+                "localized_name": "images.image12",
+                "name": "images.image12",
+                "type": "IMAGE",
+                "label": "image12",
+                "shape": 7,
+                "link": 193
+              },
+              {
+                "localized_name": "images.image13",
+                "name": "images.image13",
+                "type": "IMAGE",
+                "label": "image13",
+                "shape": 7,
+                "link": 194
+              },
+              {
+                "localized_name": "images.image14",
+                "name": "images.image14",
+                "type": "IMAGE",
+                "label": "image14",
+                "shape": 7,
+                "link": 195
+              },
+              {
+                "localized_name": "images.image15",
+                "name": "images.image15",
+                "type": "IMAGE",
+                "label": "image15",
+                "shape": 7,
+                "link": 196
+              },
+              {
+                "localized_name": "images.image16",
+                "name": "images.image16",
+                "type": "IMAGE",
+                "label": "image16",
+                "shape": 7,
+                "link": 197
+              },
+              {
+                "localized_name": "images.image17",
+                "name": "images.image17",
+                "type": "IMAGE",
+                "label": "image17",
+                "shape": 7,
+                "link": 198
+              },
+              {
+                "localized_name": "images.image18",
+                "name": "images.image18",
+                "type": "IMAGE",
+                "label": "image18",
+                "shape": 7,
+                "link": 199
+              },
+              {
+                "localized_name": "images.image19",
+                "name": "images.image19",
+                "type": "IMAGE",
+                "label": "image19",
+                "shape": 7,
+                "link": 200
+              },
+              {
+                "localized_name": "images.image20",
+                "name": "images.image20",
+                "type": "IMAGE",
+                "label": "image20",
+                "shape": 7,
+                "link": 201
+              },
+              {
+                "localized_name": "images.image21",
+                "name": "images.image21",
+                "type": "IMAGE",
+                "label": "image21",
+                "shape": 7,
+                "link": 202
+              },
+              {
+                "localized_name": "images.image22",
+                "name": "images.image22",
+                "type": "IMAGE",
+                "label": "image22",
+                "shape": 7,
+                "link": 203
+              },
+              {
+                "localized_name": "images.image23",
+                "name": "images.image23",
+                "type": "IMAGE",
+                "label": "image23",
+                "shape": 7,
+                "link": 204
+              },
+              {
+                "localized_name": "images.image24",
+                "name": "images.image24",
+                "type": "IMAGE",
+                "label": "image24",
+                "shape": 7,
+                "link": 205
+              },
+              {
+                "localized_name": "images.image25",
+                "name": "images.image25",
+                "type": "IMAGE",
+                "label": "image25",
+                "shape": 7,
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  206
+                ]
+              }
+            ],
+            "properties": {
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              },
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "Node name for S&R": "BatchImagesNode"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "id": 1,
+            "title": "Crop Images 5x5",
+            "bounding": [
+              -260,
+              -80,
+              6060,
+              3040
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {}
+          }
+        ],
+        "links": [
+          {
+            "id": 1,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 1,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 2,
+            "origin_id": 1,
+            "origin_slot": 0,
+            "target_id": 3,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 3,
+            "origin_id": 2,
+            "origin_slot": 0,
+            "target_id": 3,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 4,
+            "origin_id": 1,
+            "origin_slot": 1,
+            "target_id": 4,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 5,
+            "origin_id": 2,
+            "origin_slot": 0,
+            "target_id": 4,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 6,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 5,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 7,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 6,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 8,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 7,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 9,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 8,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 10,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 9,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 11,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 10,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 12,
+            "origin_id": 1,
+            "origin_slot": 0,
+            "target_id": 11,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 13,
+            "origin_id": 7,
+            "origin_slot": 1,
+            "target_id": 11,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 14,
+            "origin_id": 1,
+            "origin_slot": 1,
+            "target_id": 12,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 15,
+            "origin_id": 10,
+            "origin_slot": 1,
+            "target_id": 12,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 16,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 13,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 17,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 13,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 18,
+            "origin_id": 13,
+            "origin_slot": 0,
+            "target_id": 14,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 19,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 14,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 20,
+            "origin_id": 14,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 21,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 15,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 22,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 15,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 23,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 15,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 24,
+            "origin_id": 15,
+            "origin_slot": 0,
+            "target_id": 16,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 25,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 16,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 26,
+            "origin_id": 16,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 1,
+            "type": "IMAGE"
+          },
+          {
+            "id": 27,
+            "origin_id": 5,
+            "origin_slot": 1,
+            "target_id": 17,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 28,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 17,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 29,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 17,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 30,
+            "origin_id": 17,
+            "origin_slot": 0,
+            "target_id": 18,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 31,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 18,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 32,
+            "origin_id": 18,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 2,
+            "type": "IMAGE"
+          },
+          {
+            "id": 33,
+            "origin_id": 6,
+            "origin_slot": 1,
+            "target_id": 19,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 34,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 19,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 35,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 19,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 36,
+            "origin_id": 19,
+            "origin_slot": 0,
+            "target_id": 20,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 37,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 20,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 38,
+            "origin_id": 20,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 3,
+            "type": "IMAGE"
+          },
+          {
+            "id": 39,
+            "origin_id": 7,
+            "origin_slot": 1,
+            "target_id": 21,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 40,
+            "origin_id": 11,
+            "origin_slot": 1,
+            "target_id": 21,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 41,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 21,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 42,
+            "origin_id": 21,
+            "origin_slot": 0,
+            "target_id": 22,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 43,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 22,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 44,
+            "origin_id": 22,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 4,
+            "type": "IMAGE"
+          },
+          {
+            "id": 45,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 23,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 46,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 23,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 47,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 23,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 48,
+            "origin_id": 23,
+            "origin_slot": 0,
+            "target_id": 24,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 49,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 24,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 50,
+            "origin_id": 24,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 5,
+            "type": "IMAGE"
+          },
+          {
+            "id": 51,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 25,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 52,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 25,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 53,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 25,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 54,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 25,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 55,
+            "origin_id": 25,
+            "origin_slot": 0,
+            "target_id": 26,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 56,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 26,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 57,
+            "origin_id": 26,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 6,
+            "type": "IMAGE"
+          },
+          {
+            "id": 58,
+            "origin_id": 5,
+            "origin_slot": 1,
+            "target_id": 27,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 59,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 27,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 60,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 27,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 61,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 27,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 62,
+            "origin_id": 27,
+            "origin_slot": 0,
+            "target_id": 28,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 63,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 28,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 64,
+            "origin_id": 28,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 7,
+            "type": "IMAGE"
+          },
+          {
+            "id": 65,
+            "origin_id": 6,
+            "origin_slot": 1,
+            "target_id": 29,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 66,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 29,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 67,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 29,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 68,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 29,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 69,
+            "origin_id": 29,
+            "origin_slot": 0,
+            "target_id": 30,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 70,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 30,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 71,
+            "origin_id": 30,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 8,
+            "type": "IMAGE"
+          },
+          {
+            "id": 72,
+            "origin_id": 7,
+            "origin_slot": 1,
+            "target_id": 31,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 73,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 31,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 74,
+            "origin_id": 11,
+            "origin_slot": 1,
+            "target_id": 31,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 75,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 31,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 76,
+            "origin_id": 31,
+            "origin_slot": 0,
+            "target_id": 32,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 77,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 32,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 78,
+            "origin_id": 32,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 9,
+            "type": "IMAGE"
+          },
+          {
+            "id": 79,
+            "origin_id": 8,
+            "origin_slot": 1,
+            "target_id": 33,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 80,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 33,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 81,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 33,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 82,
+            "origin_id": 33,
+            "origin_slot": 0,
+            "target_id": 34,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 83,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 34,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 84,
+            "origin_id": 34,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 10,
+            "type": "IMAGE"
+          },
+          {
+            "id": 85,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 35,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 86,
+            "origin_id": 8,
+            "origin_slot": 1,
+            "target_id": 35,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 87,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 35,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 88,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 35,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 89,
+            "origin_id": 35,
+            "origin_slot": 0,
+            "target_id": 36,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 90,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 36,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 91,
+            "origin_id": 36,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 11,
+            "type": "IMAGE"
+          },
+          {
+            "id": 92,
+            "origin_id": 5,
+            "origin_slot": 1,
+            "target_id": 37,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 93,
+            "origin_id": 8,
+            "origin_slot": 1,
+            "target_id": 37,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 94,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 37,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 95,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 37,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 96,
+            "origin_id": 37,
+            "origin_slot": 0,
+            "target_id": 38,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 97,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 38,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 98,
+            "origin_id": 38,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 12,
+            "type": "IMAGE"
+          },
+          {
+            "id": 99,
+            "origin_id": 6,
+            "origin_slot": 1,
+            "target_id": 39,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 100,
+            "origin_id": 8,
+            "origin_slot": 1,
+            "target_id": 39,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 101,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 39,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 102,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 39,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 103,
+            "origin_id": 39,
+            "origin_slot": 0,
+            "target_id": 40,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 104,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 40,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 105,
+            "origin_id": 40,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 13,
+            "type": "IMAGE"
+          },
+          {
+            "id": 106,
+            "origin_id": 7,
+            "origin_slot": 1,
+            "target_id": 41,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 107,
+            "origin_id": 8,
+            "origin_slot": 1,
+            "target_id": 41,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 108,
+            "origin_id": 11,
+            "origin_slot": 1,
+            "target_id": 41,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 109,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 41,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 110,
+            "origin_id": 41,
+            "origin_slot": 0,
+            "target_id": 42,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 111,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 42,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 112,
+            "origin_id": 42,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 14,
+            "type": "IMAGE"
+          },
+          {
+            "id": 113,
+            "origin_id": 9,
+            "origin_slot": 1,
+            "target_id": 43,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 114,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 43,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 115,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 43,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 116,
+            "origin_id": 43,
+            "origin_slot": 0,
+            "target_id": 44,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 117,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 44,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 118,
+            "origin_id": 44,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 15,
+            "type": "IMAGE"
+          },
+          {
+            "id": 119,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 45,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 120,
+            "origin_id": 9,
+            "origin_slot": 1,
+            "target_id": 45,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 121,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 45,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 122,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 45,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 123,
+            "origin_id": 45,
+            "origin_slot": 0,
+            "target_id": 46,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 124,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 46,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 125,
+            "origin_id": 46,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 16,
+            "type": "IMAGE"
+          },
+          {
+            "id": 126,
+            "origin_id": 5,
+            "origin_slot": 1,
+            "target_id": 47,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 127,
+            "origin_id": 9,
+            "origin_slot": 1,
+            "target_id": 47,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 128,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 47,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 129,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 47,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 130,
+            "origin_id": 47,
+            "origin_slot": 0,
+            "target_id": 48,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 131,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 48,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 132,
+            "origin_id": 48,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 17,
+            "type": "IMAGE"
+          },
+          {
+            "id": 133,
+            "origin_id": 6,
+            "origin_slot": 1,
+            "target_id": 49,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 134,
+            "origin_id": 9,
+            "origin_slot": 1,
+            "target_id": 49,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 135,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 49,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 136,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 49,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 137,
+            "origin_id": 49,
+            "origin_slot": 0,
+            "target_id": 50,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 138,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 50,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 139,
+            "origin_id": 50,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 18,
+            "type": "IMAGE"
+          },
+          {
+            "id": 140,
+            "origin_id": 7,
+            "origin_slot": 1,
+            "target_id": 51,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 141,
+            "origin_id": 9,
+            "origin_slot": 1,
+            "target_id": 51,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 142,
+            "origin_id": 11,
+            "origin_slot": 1,
+            "target_id": 51,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 143,
+            "origin_id": 4,
+            "origin_slot": 1,
+            "target_id": 51,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 144,
+            "origin_id": 51,
+            "origin_slot": 0,
+            "target_id": 52,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 145,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 52,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 146,
+            "origin_id": 52,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 19,
+            "type": "IMAGE"
+          },
+          {
+            "id": 147,
+            "origin_id": 10,
+            "origin_slot": 1,
+            "target_id": 53,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 148,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 53,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 149,
+            "origin_id": 12,
+            "origin_slot": 1,
+            "target_id": 53,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 150,
+            "origin_id": 53,
+            "origin_slot": 0,
+            "target_id": 54,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 151,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 54,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 152,
+            "origin_id": 54,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 20,
+            "type": "IMAGE"
+          },
+          {
+            "id": 153,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 55,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 154,
+            "origin_id": 10,
+            "origin_slot": 1,
+            "target_id": 55,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 155,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 55,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 156,
+            "origin_id": 12,
+            "origin_slot": 1,
+            "target_id": 55,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 157,
+            "origin_id": 55,
+            "origin_slot": 0,
+            "target_id": 56,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 158,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 56,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 159,
+            "origin_id": 56,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 21,
+            "type": "IMAGE"
+          },
+          {
+            "id": 160,
+            "origin_id": 5,
+            "origin_slot": 1,
+            "target_id": 57,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 161,
+            "origin_id": 10,
+            "origin_slot": 1,
+            "target_id": 57,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 162,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 57,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 163,
+            "origin_id": 12,
+            "origin_slot": 1,
+            "target_id": 57,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 164,
+            "origin_id": 57,
+            "origin_slot": 0,
+            "target_id": 58,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 165,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 58,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 166,
+            "origin_id": 58,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 22,
+            "type": "IMAGE"
+          },
+          {
+            "id": 167,
+            "origin_id": 6,
+            "origin_slot": 1,
+            "target_id": 59,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 168,
+            "origin_id": 10,
+            "origin_slot": 1,
+            "target_id": 59,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 169,
+            "origin_id": 3,
+            "origin_slot": 1,
+            "target_id": 59,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 170,
+            "origin_id": 12,
+            "origin_slot": 1,
+            "target_id": 59,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 171,
+            "origin_id": 59,
+            "origin_slot": 0,
+            "target_id": 60,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 172,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 60,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 173,
+            "origin_id": 60,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 23,
+            "type": "IMAGE"
+          },
+          {
+            "id": 174,
+            "origin_id": 7,
+            "origin_slot": 1,
+            "target_id": 61,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 175,
+            "origin_id": 10,
+            "origin_slot": 1,
+            "target_id": 61,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 176,
+            "origin_id": 11,
+            "origin_slot": 1,
+            "target_id": 61,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 177,
+            "origin_id": 12,
+            "origin_slot": 1,
+            "target_id": 61,
+            "target_slot": 3,
+            "type": "INT"
+          },
+          {
+            "id": 178,
+            "origin_id": 61,
+            "origin_slot": 0,
+            "target_id": 62,
+            "target_slot": 1,
+            "type": "BOUNDING_BOX"
+          },
+          {
+            "id": 179,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 62,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 180,
+            "origin_id": 62,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 24,
+            "type": "IMAGE"
+          },
+          {
+            "id": 181,
+            "origin_id": 14,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 182,
+            "origin_id": 16,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 1,
+            "type": "IMAGE"
+          },
+          {
+            "id": 183,
+            "origin_id": 18,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 2,
+            "type": "IMAGE"
+          },
+          {
+            "id": 184,
+            "origin_id": 20,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 3,
+            "type": "IMAGE"
+          },
+          {
+            "id": 185,
+            "origin_id": 22,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 4,
+            "type": "IMAGE"
+          },
+          {
+            "id": 186,
+            "origin_id": 24,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 5,
+            "type": "IMAGE"
+          },
+          {
+            "id": 187,
+            "origin_id": 26,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 6,
+            "type": "IMAGE"
+          },
+          {
+            "id": 188,
+            "origin_id": 28,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 7,
+            "type": "IMAGE"
+          },
+          {
+            "id": 189,
+            "origin_id": 30,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 8,
+            "type": "IMAGE"
+          },
+          {
+            "id": 190,
+            "origin_id": 32,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 9,
+            "type": "IMAGE"
+          },
+          {
+            "id": 191,
+            "origin_id": 34,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 10,
+            "type": "IMAGE"
+          },
+          {
+            "id": 192,
+            "origin_id": 36,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 11,
+            "type": "IMAGE"
+          },
+          {
+            "id": 193,
+            "origin_id": 38,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 12,
+            "type": "IMAGE"
+          },
+          {
+            "id": 194,
+            "origin_id": 40,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 13,
+            "type": "IMAGE"
+          },
+          {
+            "id": 195,
+            "origin_id": 42,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 14,
+            "type": "IMAGE"
+          },
+          {
+            "id": 196,
+            "origin_id": 44,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 15,
+            "type": "IMAGE"
+          },
+          {
+            "id": 197,
+            "origin_id": 46,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 16,
+            "type": "IMAGE"
+          },
+          {
+            "id": 198,
+            "origin_id": 48,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 17,
+            "type": "IMAGE"
+          },
+          {
+            "id": 199,
+            "origin_id": 50,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 18,
+            "type": "IMAGE"
+          },
+          {
+            "id": 200,
+            "origin_id": 52,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 19,
+            "type": "IMAGE"
+          },
+          {
+            "id": 201,
+            "origin_id": 54,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 20,
+            "type": "IMAGE"
+          },
+          {
+            "id": 202,
+            "origin_id": 56,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 21,
+            "type": "IMAGE"
+          },
+          {
+            "id": 203,
+            "origin_id": 58,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 22,
+            "type": "IMAGE"
+          },
+          {
+            "id": 204,
+            "origin_id": 60,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 23,
+            "type": "IMAGE"
+          },
+          {
+            "id": 205,
+            "origin_id": 62,
+            "origin_slot": 0,
+            "target_id": 63,
+            "target_slot": 24,
+            "type": "IMAGE"
+          },
+          {
+            "id": 206,
+            "origin_id": 63,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 25,
+            "type": "IMAGE"
+          }
+        ],
+        "extra": {},
+        "category": "Image Tools/Crop",
+        "description": "Splits an image into a 5x5 grid of 25 tiles."
+      }
+    ]
+  },
+  "extra": {}
+}
