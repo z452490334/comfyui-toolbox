@@ -117,9 +117,9 @@ Generate a high-quality image from a text prompt.
 | `prompt` | Describe the image you want to generate |
 | `api_key` | *(optional)* API key — wire from the API Key node or leave blank |
 | `base_url` | *(optional)* OpenAI-compatible API base URL — wire from the Base URL node or leave blank |
-| `model` | GPT Image model: `gpt-image-1.5`, `gpt-image-1`, or `gpt-image-1-mini` |
+| `model` | GPT Image model: `gpt-image-2`, `gpt-image-1.5`, `gpt-image-1`, or `gpt-image-1-mini` |
 | `n` | Number of images to request, 1-10 |
-| `size` | `auto`, `1024x1024`, `1536x1024`, or `1024x1536` |
+| `size` | `auto`, `1024x1024`, `1536x1024`, `1024x1536`, `2048x2048`, `2048x1152`, `3840x2160`, or `2160x3840` |
 | `quality` | `auto`, `low`, `medium`, or `high` |
 | `background` | `auto`, `transparent`, or `opaque` |
 | `output_format` | `png`, `jpeg`, or `webp` |
@@ -154,9 +154,9 @@ Edit or transform up to 16 reference images guided by a text prompt.
 | `prompt` | Describe the desired transformation or style |
 | `api_key` | *(optional)* API key — wire from the API Key node or leave blank |
 | `base_url` | *(optional)* OpenAI-compatible API base URL — wire from the Base URL node or leave blank |
-| `model` | GPT Image model: `gpt-image-1.5`, `gpt-image-1`, or `gpt-image-1-mini` |
+| `model` | GPT Image model: `gpt-image-2`, `gpt-image-1.5`, `gpt-image-1`, or `gpt-image-1-mini` |
 | `n` | Number of images to request, 1-10 |
-| `size` | `auto`, `1024x1024`, `1536x1024`, or `1024x1536` |
+| `size` | `auto`, `1024x1024`, `1536x1024`, `1024x1536`, `2048x2048`, `2048x1152`, `3840x2160`, or `2160x3840` |
 | `quality` | `auto`, `low`, `medium`, or `high` |
 | `background` | `auto`, `transparent`, or `opaque` |
 | `input_fidelity` | `auto`, `low`, or `high` |
@@ -196,6 +196,8 @@ By default, requests go through the OpenAI API. You can override the base URL fo
 Text-to-image requests are sent as JSON. Image-to-image requests are sent as `multipart/form-data` with `image[]` file fields and an optional `mask` file field.
 
 The generation nodes expose the current OpenAI Images API option names and pass them through in the request payload. The nodes read `data[0].b64_json` responses from GPT Image models, and also support URL responses from compatible providers.
+
+`gpt-image-2` is the default model. For edit requests, `input_fidelity` is omitted for `gpt-image-2` because GPT Image 2 always processes image inputs at high fidelity.
 
 ---
 

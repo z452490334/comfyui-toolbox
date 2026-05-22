@@ -25,8 +25,17 @@ LEGACY_CONFIG_PATH = os.path.expanduser("~/.muapi/config.json")
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 DEFAULT_USER_AGENT = "gpt-image-2-comfyui/1.0"
 
-MODEL_OPTIONS = ["gpt-image-1.5", "gpt-image-1", "gpt-image-1-mini"]
-SIZE_OPTIONS = ["auto", "1024x1024", "1536x1024", "1024x1536"]
+MODEL_OPTIONS = ["gpt-image-2", "gpt-image-1.5", "gpt-image-1", "gpt-image-1-mini"]
+SIZE_OPTIONS = [
+    "auto",
+    "1024x1024",
+    "1536x1024",
+    "1024x1536",
+    "2048x2048",
+    "2048x1152",
+    "3840x2160",
+    "2160x3840",
+]
 QUALITY_OPTIONS = ["auto", "low", "medium", "high"]
 BACKGROUND_OPTIONS = ["auto", "transparent", "opaque"]
 OUTPUT_FORMAT_OPTIONS = ["png", "jpeg", "webp"]
@@ -134,7 +143,7 @@ def _image_options_payload(
         payload["partial_images"] = int(partial_images)
     if style and style.strip():
         payload["style"] = style.strip()
-    if input_fidelity and input_fidelity != "auto":
+    if input_fidelity and input_fidelity != "auto" and model != "gpt-image-2":
         payload["input_fidelity"] = input_fidelity
     return payload
 
@@ -368,7 +377,7 @@ class GPTImage2TextToImage:
             "optional": {
                 "api_key": ("STRING", {"multiline": False, "default": ""}),
                 "base_url": ("STRING", {"multiline": False, "default": ""}),
-                "model": (MODEL_OPTIONS, {"default": "gpt-image-1.5"}),
+                "model": (MODEL_OPTIONS, {"default": "gpt-image-2"}),
                 "n": ("INT", {"default": 1, "min": 1, "max": 10, "step": 1}),
                 "size": (SIZE_OPTIONS, {"default": "auto"}),
                 "quality": (QUALITY_OPTIONS, {"default": "auto"}),
@@ -393,7 +402,7 @@ class GPTImage2TextToImage:
         prompt,
         api_key="",
         base_url="",
-        model="gpt-image-1.5",
+        model="gpt-image-2",
         n=1,
         size="auto",
         quality="auto",
@@ -461,7 +470,7 @@ class GPTImage2ImageToImage:
             "optional": {
                 "api_key": ("STRING", {"multiline": False, "default": ""}),
                 "base_url": ("STRING", {"multiline": False, "default": ""}),
-                "model": (MODEL_OPTIONS, {"default": "gpt-image-1.5"}),
+                "model": (MODEL_OPTIONS, {"default": "gpt-image-2"}),
                 "n": ("INT", {"default": 1, "min": 1, "max": 10, "step": 1}),
                 "size": (SIZE_OPTIONS, {"default": "auto"}),
                 "quality": (QUALITY_OPTIONS, {"default": "auto"}),
@@ -503,7 +512,7 @@ class GPTImage2ImageToImage:
         prompt,
         api_key="",
         base_url="",
-        model="gpt-image-1.5",
+        model="gpt-image-2",
         n=1,
         size="auto",
         quality="auto",
