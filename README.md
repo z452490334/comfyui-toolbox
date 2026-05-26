@@ -29,6 +29,7 @@ GPT-Image-2 uses OpenAI-compatible GPT Image models with native image editing su
 | 🔑 Jimeng API Key | Set a Volcano Ark API key for Jimeng/Seedream nodes |
 | 🌐 Jimeng Base URL | Set a Volcano Ark-compatible API base URL |
 | 🖼️ Jimeng Seedream Image | Generate or edit images with exposed Seedream image parameters |
+| ✂️ Grid Crop Images | Split images into a configurable cols x rows grid |
 
 ---
 
@@ -216,6 +217,21 @@ Generate or edit images through Volcano Ark's Seedream image generation API. The
 | `image_1` … `image_14` | Optional reference images |
 
 **Outputs:** generated images as an IMAGE batch, newline-separated image URLs/data URLs, request ID, and raw JSON response.
+
+---
+
+### ✂️ Grid Crop Images
+
+Split each input image into a configurable grid. The output `images` is an IMAGE batch ordered left-to-right, top-to-bottom.
+
+| Field | Description |
+|-------|-------------|
+| `image` | Input IMAGE or IMAGE batch |
+| `cols` | Number of columns |
+| `rows` | Number of rows |
+| `fit_mode` | `pad_edge` pads the right/bottom edge so every tile has the same size; `crop_remainder` drops non-divisible right/bottom pixels |
+
+**Outputs:** split images as an IMAGE batch, plus `tile_width` and `tile_height`.
 
 ---
 

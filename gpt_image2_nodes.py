@@ -28,6 +28,7 @@ DEFAULT_USER_AGENT = "gpt-image-2-comfyui/1.0"
 TOOLBOX_CATEGORY = "⭐ Toolbox"
 GPT_IMAGE_CATEGORY = f"{TOOLBOX_CATEGORY}/GPT-Image-2"
 JIMENG_CATEGORY = f"{TOOLBOX_CATEGORY}/Jimeng"
+IMAGE_CATEGORY = f"{TOOLBOX_CATEGORY}/Image"
 
 MODEL_OPTIONS = ["gpt-image-2", "gpt-image-1.5", "gpt-image-1", "gpt-image-1-mini"]
 SIZE_OPTIONS = [
@@ -1007,6 +1008,78 @@ class JimengSeedreamImage:
         return (images, "\n".join(urls), request_id, raw_response)
 
 
+class GridCropImages:
+    """
+    Split each input image into a row-major grid and return all tiles as one IMAGE batch.
+    """
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "image": ("IMAGE",),
+                "cols": ("INT", {"default": 4, "min": 1, "max": 128, "step": 1}),
+                "rows": ("INT", {"default": 4, "min": 1, "max": 128, "step": 1}),
+                "fit_mode": (["pad_edge", "crop_remainder"], {"default": "pad_edge"}),
+            }
+        }
+
+    RETURN_TYPES = ("IMAGE", "INT", "INT")
+    RETURN_NAMES = ("images", "tile_width", "tile_height")
+    FUNCTION = "crop"
+    CATEGORY = IMAGE_CATEGORY
+
+    def crop(self, image, cols=4, rows=4, fit_mode="pad_edge"):
+        cols = int(cols)
+        rows = int(rows)
+        if cols < 1 or rows < 1:
+            raise ValueError("cols and rows must be >= 1.")
+
+        if image.dim() == 3:
+            image = image.unsqueeze(0)
+        if image.dim() != 4:
+            raise ValueError(f"Expected IMAGE tensor with 3 or 4 dimensions, got {image.dim()}.")
+
+        batch, height, width, channels = image.shape
+
+        if fit_mode == "crop_remainder":
+            if height < rows or width < cols:
+                raise ValueError(
+                    f"Image size {width}x{height} is too small for a {cols}x{rows} grid "
+                    "when fit_mode is crop_remainder."
+                )
+            tile_width = width // cols
+            tile_height = height // rows
+            fit_width = tile_width * cols
+            fit_height = tile_height * rows
+            image = image[:, :fit_height, :fit_width, :]
+        elif fit_mode == "pad_edge":
+            tile_width = (width + cols - 1) // cols
+            tile_height = (height + rows - 1) // rows
+            fit_width = tile_width * cols
+            fit_height = tile_height * rows
+            pad_width = fit_width - width
+            pad_height = fit_height - height
+            if pad_width or pad_height:
+                nchw = image.movedim(-1, 1)
+                image = torch.nn.functional.pad(
+                    nchw,
+                    (0, pad_width, 0, pad_height),
+                    mode="replicate",
+                ).movedim(1, -1)
+        else:
+            raise ValueError(f"Unsupported fit_mode: {fit_mode}")
+
+        tiles = (
+            image.contiguous()
+            .view(batch, rows, tile_height, cols, tile_width, channels)
+            .permute(0, 1, 3, 2, 4, 5)
+            .contiguous()
+            .view(batch * rows * cols, tile_height, tile_width, channels)
+        )
+        return (tiles, tile_width, tile_height)
+
+
 NODE_CLASS_MAPPINGS = {
     "GPTImage2ApiKey":        GPTImage2ApiKey,
     "GPTImage2BaseUrl":       GPTImage2BaseUrl,
@@ -1015,6 +1088,7 @@ NODE_CLASS_MAPPINGS = {
     "JimengApiKey":           JimengApiKey,
     "JimengBaseUrl":          JimengBaseUrl,
     "JimengSeedreamImage":    JimengSeedreamImage,
+    "GridCropImages":         GridCropImages,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -1025,4 +1099,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "JimengApiKey":           "🔑 Jimeng API Key",
     "JimengBaseUrl":          "🌐 Jimeng Base URL",
     "JimengSeedreamImage":    "🖼️ Jimeng Seedream Image",
+    "GridCropImages":         "✂️ Grid Crop Images",
 }
