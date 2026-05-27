@@ -22,6 +22,7 @@ from PIL import Image
 PLUGIN_DIR = os.path.dirname(os.path.abspath(__file__))
 PLUGIN_CONFIG_PATH = os.path.join(PLUGIN_DIR, "config.json")
 LEGACY_CONFIG_PATH = os.path.expanduser("~/.muapi/config.json")
+CONFIG_PATHS = (PLUGIN_CONFIG_PATH, LEGACY_CONFIG_PATH)
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 DEFAULT_JIMENG_BASE_URL = "https://ark.cn-beijing.volces.com/api/v3"
 DEFAULT_USER_AGENT = "gpt-image-2-comfyui/1.0"
@@ -82,18 +83,80 @@ JIMENG_OPTIMIZE_PROMPT_OPTIONS = ["auto", "standard", "fast", "disabled"]
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
-def _load_config_value(key):
-    for config_path in (PLUGIN_CONFIG_PATH, LEGACY_CONFIG_PATH):
-        if os.path.isfile(config_path):
-            try:
-                import json as _json
-                with open(config_path, encoding="utf-8") as f:
-                    value = _json.load(f).get(key, "")
-                if value:
-                    return str(value).strip()
-            except Exception:
-                pass
+_CONFIG_ERRORS = {}
+
+
+def _read_config(config_path):
+    if not os.path.isfile(config_path):
+        return None
+
+    _CONFIG_ERRORS.pop(config_path, None)
+    try:
+        with open(config_path, encoding="utf-8-sig") as f:
+            config = json.load(f)
+        if not isinstance(config, dict):
+            raise ValueError("top-level JSON value must be an object")
+        return config
+    except Exception as exc:
+        _CONFIG_ERRORS[config_path] = str(exc)
+        return None
+
+
+def _clean_config_value(value):
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
+def _config_lookup(config, key):
+    for candidate in (key, key.upper()):
+        if candidate in config:
+            value = _clean_config_value(config.get(candidate))
+            if value:
+                return value
+
+    if "_" in key:
+        section_name, nested_key = key.split("_", 1)
+        section = config.get(section_name) or config.get(section_name.upper())
+        if isinstance(section, dict):
+            for candidate in (nested_key, nested_key.upper()):
+                if candidate in section:
+                    value = _clean_config_value(section.get(candidate))
+                    if value:
+                        return value
+
+    for section_name in ("openai", "gpt_image", "gpt_image2"):
+        section = config.get(section_name) or config.get(section_name.upper())
+        if isinstance(section, dict):
+            for candidate in (key, key.upper()):
+                if candidate in section:
+                    value = _clean_config_value(section.get(candidate))
+                    if value:
+                        return value
+
     return ""
+
+
+def _load_config_value(key):
+    for config_path in CONFIG_PATHS:
+        config = _read_config(config_path)
+        if config:
+            value = _config_lookup(config, key)
+            if value:
+                return value
+    return ""
+
+
+def _config_status_message():
+    parts = []
+    for config_path in CONFIG_PATHS:
+        if config_path in _CONFIG_ERRORS:
+            parts.append(f"{config_path} (invalid: {_CONFIG_ERRORS[config_path]})")
+        elif os.path.isfile(config_path):
+            parts.append(f"{config_path} (loaded)")
+        else:
+            parts.append(f"{config_path} (missing)")
+    return "; ".join(parts)
 
 
 def _load_api_key(api_key_input):
@@ -107,7 +170,8 @@ def _load_api_key(api_key_input):
         return key
     raise RuntimeError(
         "No API key found. Either paste your key into the api_key field, "
-        f"create {PLUGIN_CONFIG_PATH}, or set OPENAI_API_KEY."
+        "set OPENAI_API_KEY, or add api_key to config.json. "
+        f"Checked config files: {_config_status_message()}"
     )
 
 
@@ -144,7 +208,8 @@ def _load_jimeng_api_key(api_key_input):
     raise RuntimeError(
         "No Jimeng API key found. Paste it into jimeng_api_key, "
         "set JIMENG_API_KEY/VOLCENGINE_API_KEY/ARK_API_KEY, or add "
-        "jimeng_api_key to config.json."
+        "jimeng_api_key, volcengine_api_key, or ark_api_key to config.json. "
+        f"Checked config files: {_config_status_message()}"
     )
 
 
