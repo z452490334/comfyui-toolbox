@@ -1100,15 +1100,18 @@ class GridCropImages:
                 "cols": ("INT", {"default": 4, "min": 1, "max": 128, "step": 1}),
                 "rows": ("INT", {"default": 4, "min": 1, "max": 128, "step": 1}),
                 "fit_mode": (["pad_edge", "crop_remainder"], {"default": "pad_edge"}),
-            }
+            },
+            "optional": {
+                "mask": ("MASK",),
+            },
         }
 
-    RETURN_TYPES = ("IMAGE", "INT", "INT")
-    RETURN_NAMES = ("images", "tile_width", "tile_height")
+    RETURN_TYPES = ("IMAGE", "INT", "INT", "MASK")
+    RETURN_NAMES = ("images", "tile_width", "tile_height", "masks")
     FUNCTION = "crop"
     CATEGORY = IMAGE_CATEGORY
 
-    def crop(self, image, cols=4, rows=4, fit_mode="pad_edge"):
+    def crop(self, image, cols=4, rows=4, fit_mode="pad_edge", mask=None):
         cols = int(cols)
         rows = int(rows)
         if cols < 1 or rows < 1:
@@ -1120,6 +1123,7 @@ class GridCropImages:
             raise ValueError(f"Expected IMAGE tensor with 3 or 4 dimensions, got {image.dim()}.")
 
         batch, height, width, channels = image.shape
+        mask = self._normalize_mask(mask, batch, height, width, image.device, image.dtype)
 
         if fit_mode == "crop_remainder":
             if height < rows or width < cols:
@@ -1132,6 +1136,7 @@ class GridCropImages:
             fit_width = tile_width * cols
             fit_height = tile_height * rows
             image = image[:, :fit_height, :fit_width, :]
+            mask = mask[:, :fit_height, :fit_width]
         elif fit_mode == "pad_edge":
             tile_width = (width + cols - 1) // cols
             tile_height = (height + rows - 1) // rows
@@ -1146,6 +1151,11 @@ class GridCropImages:
                     (0, pad_width, 0, pad_height),
                     mode="replicate",
                 ).movedim(1, -1)
+                mask = torch.nn.functional.pad(
+                    mask.unsqueeze(1),
+                    (0, pad_width, 0, pad_height),
+                    mode="replicate",
+                ).squeeze(1)
         else:
             raise ValueError(f"Unsupported fit_mode: {fit_mode}")
 
@@ -1156,7 +1166,40 @@ class GridCropImages:
             .contiguous()
             .view(batch * rows * cols, tile_height, tile_width, channels)
         )
-        return (tiles, tile_width, tile_height)
+        mask_tiles = (
+            mask.contiguous()
+            .view(batch, rows, tile_height, cols, tile_width)
+            .permute(0, 1, 3, 2, 4)
+            .contiguous()
+            .view(batch * rows * cols, tile_height, tile_width)
+        )
+        return (tiles, tile_width, tile_height, mask_tiles)
+
+    @staticmethod
+    def _normalize_mask(mask, batch, height, width, device, dtype):
+        if mask is None:
+            return torch.zeros((batch, height, width), device=device, dtype=dtype)
+
+        if mask.dim() == 2:
+            mask = mask.unsqueeze(0)
+        elif mask.dim() == 4 and mask.shape[-1] == 1:
+            mask = mask.squeeze(-1)
+
+        if mask.dim() != 3:
+            raise ValueError(f"Expected MASK tensor with 2 or 3 dimensions, got {mask.dim()}.")
+
+        mask = mask.to(device=device, dtype=dtype)
+        if mask.shape[1] != height or mask.shape[2] != width:
+            raise ValueError(
+                f"Mask size {mask.shape[2]}x{mask.shape[1]} does not match image size {width}x{height}."
+            )
+
+        if mask.shape[0] == 1 and batch > 1:
+            mask = mask.expand(batch, -1, -1)
+        elif mask.shape[0] != batch:
+            raise ValueError(f"Mask batch size {mask.shape[0]} does not match image batch size {batch}.")
+
+        return mask
 
 
 NODE_CLASS_MAPPINGS = {

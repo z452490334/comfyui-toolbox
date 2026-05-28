@@ -227,11 +227,12 @@ Split each input image into a configurable grid. The output `images` is an IMAGE
 | Field | Description |
 |-------|-------------|
 | `image` | Input IMAGE or IMAGE batch |
+| `mask` | Optional MASK input, for workflows where alpha is carried separately from IMAGE |
 | `cols` | Number of columns |
 | `rows` | Number of rows |
 | `fit_mode` | `pad_edge` pads the right/bottom edge so every tile has the same size; `crop_remainder` drops non-divisible right/bottom pixels |
 
-**Outputs:** split images as an IMAGE batch, plus `tile_width` and `tile_height`.
+**Outputs:** split images as an IMAGE batch, plus `tile_width`, `tile_height`, and cropped `masks`.
 
 ---
 
