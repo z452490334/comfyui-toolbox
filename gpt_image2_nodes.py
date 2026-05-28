@@ -420,9 +420,10 @@ def _request_id(resp):
 def _image_tensor_to_file_tuple(image_tensor, filename):
     if image_tensor.dim() == 4:
         image_tensor = image_tensor[0]
-    arr = (image_tensor.cpu().numpy() * 255).astype("uint8")
+    arr = (image_tensor.clamp(0, 1).cpu().numpy() * 255).astype("uint8")
+    mode = "RGBA" if arr.shape[-1] == 4 else "RGB"
     buf = io.BytesIO()
-    Image.fromarray(arr, "RGB").save(buf, format="PNG")
+    Image.fromarray(arr, mode).save(buf, format="PNG")
     buf.seek(0)
     return (filename, buf, "image/png")
 
@@ -430,9 +431,10 @@ def _image_tensor_to_file_tuple(image_tensor, filename):
 def _image_tensor_to_data_url(image_tensor):
     if image_tensor.dim() == 4:
         image_tensor = image_tensor[0]
-    arr = (image_tensor.cpu().numpy() * 255).astype("uint8")
+    arr = (image_tensor.clamp(0, 1).cpu().numpy() * 255).astype("uint8")
+    mode = "RGBA" if arr.shape[-1] == 4 else "RGB"
     buf = io.BytesIO()
-    Image.fromarray(arr, "RGB").save(buf, format="PNG")
+    Image.fromarray(arr, mode).save(buf, format="PNG")
     return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode("ascii")
 
 
@@ -504,20 +506,32 @@ def _output_image_urls(result):
 def _download_image(url):
     if url.startswith("data:image/") and ";base64," in url:
         _, b64_data = url.split(";base64,", 1)
-        img = Image.open(io.BytesIO(base64.b64decode(b64_data))).convert("RGB")
+        img = _normalize_pil_image(Image.open(io.BytesIO(base64.b64decode(b64_data))))
         arr = np.array(img).astype(np.float32) / 255.0
         return torch.from_numpy(arr).unsqueeze(0)
     r = requests.get(url, headers={"User-Agent": _load_user_agent()}, timeout=120)
     r.raise_for_status()
-    img = Image.open(io.BytesIO(r.content)).convert("RGB")
+    img = _normalize_pil_image(Image.open(io.BytesIO(r.content)))
     arr = np.array(img).astype(np.float32) / 255.0
     return torch.from_numpy(arr).unsqueeze(0)
+
+
+def _normalize_pil_image(img):
+    if img.mode in ("RGBA", "LA") or ("transparency" in img.info):
+        return img.convert("RGBA")
+    return img.convert("RGB")
 
 
 def _download_images(urls):
     tensors = [_download_image(url) for url in urls]
     if not tensors:
         raise RuntimeError("No generated images to download.")
+    channels = max(t.shape[-1] for t in tensors)
+    if channels == 4:
+        tensors = [
+            t if t.shape[-1] == 4 else torch.cat((t, torch.ones_like(t[..., :1])), dim=-1)
+            for t in tensors
+        ]
     return torch.cat(tensors, dim=0)
 
 
