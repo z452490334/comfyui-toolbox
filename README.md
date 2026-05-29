@@ -29,6 +29,9 @@ GPT-Image-2 uses OpenAI-compatible GPT Image models with native image editing su
 | 🔑 Jimeng API Key | Set a Volcano Ark API key for Jimeng/Seedream nodes |
 | 🌐 Jimeng Base URL | Set a Volcano Ark-compatible API base URL |
 | 🖼️ Jimeng Seedream Image | Generate or edit images with exposed Seedream image parameters |
+| 🔑 Mango AIGC Credentials | Set Mango AIGC access and secret keys for Wan2.7 nodes |
+| 🌐 Mango AIGC Base URL | Set the Mango AIGC API base URL |
+| 🖼️ Mango Wan2.7 Text to Image | Generate images with Mango AIGC Wan2.7 image models |
 | ✂️ Grid Crop Images | Split images into a configurable cols x rows grid |
 
 ---
@@ -87,6 +90,9 @@ The easiest persistent setup is to create `config.json` in this plugin directory
   "base_url": "https://api.example.com/v1",
   "jimeng_api_key": "YOUR_VOLCENGINE_ARK_KEY",
   "jimeng_base_url": "https://ark.cn-beijing.volces.com/api/v3",
+  "mango_access_key": "YOUR_MANGO_AIGC_ACCESS_KEY",
+  "mango_secret_key": "YOUR_MANGO_AIGC_SECRET_KEY",
+  "mango_base_url": "https://aigc.mgtv.com",
   "user_agent": "gpt-image-2-comfyui/1.0"
 }
 ```
@@ -108,6 +114,9 @@ MUAPI_BASE_URL=https://api.example.com/v1
 OPENAI_USER_AGENT=gpt-image-2-comfyui/1.0
 JIMENG_API_KEY=your-volcano-ark-key
 JIMENG_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
+MANGO_ACCESS_KEY=your-mango-aigc-access-key
+MANGO_SECRET_KEY=your-mango-aigc-secret-key
+MANGO_BASE_URL=https://aigc.mgtv.com
 ```
 
 **Output:** `base_url` string (wire to generation nodes)
@@ -217,6 +226,30 @@ Generate or edit images through Volcano Ark's Seedream image generation API. The
 | `image_1` … `image_14` | Optional reference images |
 
 **Outputs:** generated images as an IMAGE batch, newline-separated image URLs/data URLs, request ID, and raw JSON response.
+
+---
+
+### 🖼️ Mango Wan2.7 Text to Image
+
+Generate images through Mango AIGC's storyboard image API. The node submits `POST /openapi/v1/storyboard/generateByPromptV2`, reads the returned `aseetRecordId`, then polls `POST /openapi/v1/storyboard/getAssetInfo` with `recordIds` until `images[].imgUrl` is available.
+
+| Field | Description |
+|-------|-------------|
+| `prompt` | Text prompt for Wan2.7 image generation |
+| `mango_access_key`, `mango_secret_key` | *(optional)* Mango AIGC credentials — wire from the Credentials node or leave blank |
+| `base_url` | *(optional)* Mango AIGC API base URL, default `https://aigc.mgtv.com` |
+| `model` | `Wan2.7-image-pro (35)` or `Wan2.7-image (34)` |
+| `style_id` | Manual style ID fallback; model selection takes precedence |
+| `ratio` | Output aspect ratio such as `16:9`, `1:1`, or `9:16` |
+| `resolution` | `1K` or `2K` |
+| `nums` | Number of images to request, 1-4 |
+| `seed` | Reproducibility seed; `-1` omits the parameter |
+| `img_urls` | Optional reference image URLs, one per line, sent as `imgUrls` |
+| `prompt_args_json` | Optional JSON array sent as `prompt.args` |
+| `poll_interval`, `timeout_seconds` | Asset polling cadence and timeout |
+| `extra_json` | Raw JSON object merged into the request payload |
+
+**Outputs:** generated images as an IMAGE batch, newline-separated image URLs, Mango asset record ID, and raw JSON response.
 
 ---
 

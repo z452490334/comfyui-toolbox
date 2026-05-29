@@ -3,5 +3,8 @@
   "base_url": "https://api.openai.com/v1",
   "jimeng_api_key": "YOUR_VOLCENGINE_ARK_KEY",
   "jimeng_base_url": "https://ark.cn-beijing.volces.com/api/v3",
+  "mango_access_key": "YOUR_MANGO_AIGC_ACCESS_KEY",
+  "mango_secret_key": "YOUR_MANGO_AIGC_SECRET_KEY",
+  "mango_base_url": "https://aigc.mgtv.com",
   "user_agent": "gpt-image-2-comfyui/1.0"
 }

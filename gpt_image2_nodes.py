@@ -10,9 +10,13 @@ Auth:     Authorization: Bearer <api key>
 """
 
 import base64
+import hashlib
+import hmac
 import io
 import os
 import json
+import time
+import uuid
 
 import numpy as np
 import requests
@@ -25,10 +29,12 @@ LEGACY_CONFIG_PATH = os.path.expanduser("~/.muapi/config.json")
 CONFIG_PATHS = (PLUGIN_CONFIG_PATH, LEGACY_CONFIG_PATH)
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 DEFAULT_JIMENG_BASE_URL = "https://ark.cn-beijing.volces.com/api/v3"
+DEFAULT_MANGO_BASE_URL = "https://aigc.mgtv.com"
 DEFAULT_USER_AGENT = "gpt-image-2-comfyui/1.0"
 TOOLBOX_CATEGORY = "⭐ Toolbox"
 GPT_IMAGE_CATEGORY = f"{TOOLBOX_CATEGORY}/GPT-Image-2"
 JIMENG_CATEGORY = f"{TOOLBOX_CATEGORY}/Jimeng"
+MANGO_CATEGORY = f"{TOOLBOX_CATEGORY}/Mango AIGC"
 IMAGE_CATEGORY = f"{TOOLBOX_CATEGORY}/Image"
 
 MODEL_OPTIONS = ["gpt-image-2", "gpt-image-1.5", "gpt-image-1", "gpt-image-1-mini"]
@@ -79,6 +85,12 @@ JIMENG_RESPONSE_FORMAT_OPTIONS = ["url", "b64_json"]
 JIMENG_OUTPUT_FORMAT_OPTIONS = ["jpeg", "png"]
 JIMENG_SEQUENTIAL_OPTIONS = ["disabled", "auto"]
 JIMENG_OPTIMIZE_PROMPT_OPTIONS = ["auto", "standard", "fast", "disabled"]
+MANGO_WAN27_STYLE_OPTIONS = [
+    "Wan2.7-image-pro (35)",
+    "Wan2.7-image (34)",
+]
+MANGO_RATIO_OPTIONS = ["16:9", "1:1", "9:16", "3:4", "4:3", "3:2", "2:3", "21:9"]
+MANGO_RESOLUTION_OPTIONS = ["1K", "2K"]
 
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
@@ -228,6 +240,67 @@ def _load_jimeng_base_url(base_url_input=""):
             return value.rstrip("/")
 
     return DEFAULT_JIMENG_BASE_URL
+
+
+def _load_mango_access_key(access_key_input):
+    if access_key_input and access_key_input.strip():
+        return access_key_input.strip()
+
+    for env_name in ("MANGO_ACCESS_KEY", "MGTV_ACCESS_KEY", "MANGO_AIGC_ACCESS_KEY"):
+        env_key = os.environ.get(env_name, "").strip()
+        if env_key:
+            return env_key
+
+    for key in ("mango_access_key", "mgtv_access_key", "mango_aigc_access_key"):
+        value = _load_config_value(key)
+        if value:
+            return value
+
+    raise RuntimeError(
+        "No Mango AIGC access key found. Paste it into mango_access_key, "
+        "set MANGO_ACCESS_KEY/MGTV_ACCESS_KEY/MANGO_AIGC_ACCESS_KEY, or add "
+        "mango_access_key to config.json. "
+        f"Checked config files: {_config_status_message()}"
+    )
+
+
+def _load_mango_secret_key(secret_key_input):
+    if secret_key_input and secret_key_input.strip():
+        return secret_key_input.strip()
+
+    for env_name in ("MANGO_SECRET_KEY", "MGTV_SECRET_KEY", "MANGO_AIGC_SECRET_KEY"):
+        env_key = os.environ.get(env_name, "").strip()
+        if env_key:
+            return env_key
+
+    for key in ("mango_secret_key", "mgtv_secret_key", "mango_aigc_secret_key"):
+        value = _load_config_value(key)
+        if value:
+            return value
+
+    raise RuntimeError(
+        "No Mango AIGC secret key found. Paste it into mango_secret_key, "
+        "set MANGO_SECRET_KEY/MGTV_SECRET_KEY/MANGO_AIGC_SECRET_KEY, or add "
+        "mango_secret_key to config.json. "
+        f"Checked config files: {_config_status_message()}"
+    )
+
+
+def _load_mango_base_url(base_url_input=""):
+    if base_url_input and base_url_input.strip():
+        return base_url_input.strip().rstrip("/")
+
+    for env_name in ("MANGO_BASE_URL", "MGTV_BASE_URL", "MANGO_AIGC_BASE_URL"):
+        env_url = os.environ.get(env_name, "").strip()
+        if env_url:
+            return env_url.rstrip("/")
+
+    for key in ("mango_base_url", "mgtv_base_url", "mango_aigc_base_url"):
+        value = _load_config_value(key)
+        if value:
+            return value.rstrip("/")
+
+    return DEFAULT_MANGO_BASE_URL
 
 
 def _load_user_agent():
@@ -407,6 +480,153 @@ def _post_jimeng_json(api_key, base_url, payload):
         return _read_jimeng_stream_response(resp), _request_id(resp)
     _check(resp)
     return resp.json(), _request_id(resp)
+
+
+def _mango_signature(method, path, timestamp, nonce, query_params, secret_key):
+    query_parts = []
+    for key in sorted(query_params.keys()):
+        query_parts.append(f"{key}={query_params[key]}")
+    sorted_query_string = "&".join(query_parts)
+    message = f"{method.upper()}\n{path}\n{timestamp}\n{nonce}\n{sorted_query_string}".encode("utf-8")
+    secret = secret_key.encode("utf-8")
+    return hmac.new(secret, message, hashlib.sha256).hexdigest()
+
+
+def _mango_headers(access_key, secret_key, method, path, query_params=None):
+    query_params = query_params or {}
+    nonce = uuid.uuid4().hex[:16]
+    timestamp = str(int(time.time()))
+    return {
+        "Content-Type": "application/json",
+        "User-Agent": _load_user_agent(),
+        "X-Access-Key": access_key,
+        "X-Timestamp": timestamp,
+        "X-Nonce": nonce,
+        "X-Signature": _mango_signature(
+            method,
+            path,
+            timestamp,
+            nonce,
+            query_params,
+            secret_key,
+        ),
+    }
+
+
+def _mango_response_data(result):
+    if not isinstance(result, dict):
+        raise RuntimeError(f"Mango AIGC response is not a JSON object: {result}")
+
+    code = result.get("code")
+    if code not in (None, 0, "0", 200, "200", "success", "SUCCESS"):
+        message = result.get("msg") or result.get("message") or result.get("error") or result
+        raise RuntimeError(f"Mango AIGC API error {code}: {message}")
+
+    data = result.get("data", result)
+    if isinstance(data, dict):
+        data_code = data.get("code")
+        if data_code not in (None, 0, "0", 200, "200", "success", "SUCCESS"):
+            message = data.get("msg") or data.get("message") or data.get("error") or data
+            raise RuntimeError(f"Mango AIGC API error {data_code}: {message}")
+
+    return data
+
+
+def _post_mango_json(access_key, secret_key, base_url, endpoint, payload):
+    path = "/" + endpoint.lstrip("/")
+    resp = requests.post(
+        f"{base_url}{path}",
+        headers=_mango_headers(access_key, secret_key, "POST", path),
+        json=payload,
+        timeout=120,
+    )
+    _check(resp)
+    return resp.json(), _request_id(resp)
+
+
+def _mango_record_id(result):
+    data = _mango_response_data(result)
+    if isinstance(data, dict):
+        for key in ("aseetRecordId", "assetRecordId", "recordId", "id"):
+            value = data.get(key)
+            if value:
+                return str(value)
+    raise RuntimeError(f"No Mango AIGC asset record id in result: {result}")
+
+
+def _mango_asset_urls(asset_result):
+    data = _mango_response_data(asset_result)
+    urls = []
+
+    def walk(item):
+        if isinstance(item, str):
+            if item:
+                urls.append(item)
+            return
+        if isinstance(item, list):
+            for child in item:
+                walk(child)
+            return
+        if not isinstance(item, dict):
+            return
+        for key in ("images", "imageList", "outputs", "output"):
+            value = item.get(key)
+            if value:
+                walk(value)
+        for key in ("imgUrl", "imageUrl", "url", "wmImgUrl"):
+            value = item.get(key)
+            if value:
+                urls.append(str(value))
+                return
+
+    walk(data)
+
+    seen = []
+    for url in urls:
+        if url not in seen:
+            seen.append(url)
+    return seen
+
+
+def _mango_asset_status(asset_result):
+    data = _mango_response_data(asset_result)
+    if isinstance(data, list) and data:
+        data = data[0]
+    if not isinstance(data, dict):
+        return ""
+    for key in ("generateStatus", "status", "state"):
+        value = data.get(key)
+        if value is not None:
+            if isinstance(value, dict) and value.get("status") is not None:
+                return str(value["status"])
+            return str(value)
+    return ""
+
+
+def _poll_mango_asset(access_key, secret_key, base_url, record_id, poll_interval, timeout_seconds):
+    deadline = time.time() + int(timeout_seconds)
+    last_result = None
+    while True:
+        last_result, request_id = _post_mango_json(
+            access_key,
+            secret_key,
+            base_url,
+            "openapi/v1/storyboard/getAssetInfo",
+            {"recordIds": [int(record_id) if str(record_id).isdigit() else record_id]},
+        )
+        urls = _mango_asset_urls(last_result)
+        if urls:
+            return last_result, request_id
+
+        status = _mango_asset_status(last_result).lower()
+        if status in ("failed", "fail", "error", "canceled", "cancelled", "3", "-1"):
+            raise RuntimeError(f"Mango AIGC generation failed: {last_result}")
+        if time.time() >= deadline:
+            raise TimeoutError(
+                f"Timed out waiting for Mango AIGC asset {record_id}. Last response: {last_result}"
+            )
+
+        time.sleep(max(1, int(poll_interval)))
 
 
 def _request_id(resp):
@@ -1087,6 +1307,238 @@ class JimengSeedreamImage:
         return (images, "\n".join(urls), request_id, raw_response)
 
 
+class MangoAIGCCredentials:
+    """
+    Store Mango AIGC access/secret keys once and wire them to Wan2.7 nodes.
+    """
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "mango_access_key": (
+                    "STRING",
+                    {
+                        "multiline": False,
+                        "default": "",
+                        "tooltip": "Mango AIGC Access-Key.",
+                    },
+                ),
+                "mango_secret_key": (
+                    "STRING",
+                    {
+                        "multiline": False,
+                        "default": "",
+                        "tooltip": "Mango AIGC Secret-Key used to sign requests.",
+                    },
+                ),
+            }
+        }
+
+    RETURN_TYPES = ("STRING", "STRING")
+    RETURN_NAMES = ("mango_access_key", "mango_secret_key")
+    FUNCTION = "run"
+    CATEGORY = MANGO_CATEGORY
+
+    def run(self, mango_access_key, mango_secret_key):
+        return (
+            _load_mango_access_key(mango_access_key),
+            _load_mango_secret_key(mango_secret_key),
+        )
+
+
+class MangoAIGCBaseUrl:
+    """
+    Provide a Mango AIGC API base URL.
+    """
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "base_url": (
+                    "STRING",
+                    {
+                        "multiline": False,
+                        "default": DEFAULT_MANGO_BASE_URL,
+                        "tooltip": "Default: https://aigc.mgtv.com",
+                    },
+                ),
+            }
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("base_url",)
+    FUNCTION = "run"
+    CATEGORY = MANGO_CATEGORY
+
+    def run(self, base_url):
+        return (_load_mango_base_url(base_url),)
+
+
+class MangoWan27TextToImage:
+    """
+    Mango AIGC Wan2.7 text-to-image.
+
+    Submit POST /openapi/v1/storyboard/generateByPromptV2 and poll
+    /openapi/v1/storyboard/getAssetInfo until image URLs are available.
+    """
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "prompt": (
+                    "STRING",
+                    {
+                        "multiline": True,
+                        "default": "",
+                        "tooltip": "Text prompt for Wan2.7 image generation.",
+                    },
+                ),
+            },
+            "optional": {
+                "mango_access_key": ("STRING", {"multiline": False, "default": ""}),
+                "mango_secret_key": ("STRING", {"multiline": False, "default": ""}),
+                "base_url": ("STRING", {"multiline": False, "default": ""}),
+                "model": (MANGO_WAN27_STYLE_OPTIONS, {"default": "Wan2.7-image-pro (35)"}),
+                "style_id": ("INT", {"default": 35, "min": 1, "max": 9999, "step": 1}),
+                "ratio": (MANGO_RATIO_OPTIONS, {"default": "16:9"}),
+                "resolution": (MANGO_RESOLUTION_OPTIONS, {"default": "2K"}),
+                "nums": ("INT", {"default": 1, "min": 1, "max": 4, "step": 1}),
+                "seed": ("INT", {"default": -1, "min": -1, "max": 2147483647, "step": 1}),
+                "img_urls": (
+                    "STRING",
+                    {
+                        "multiline": True,
+                        "default": "",
+                        "tooltip": "Optional reference image URLs, one per line. Sent as imgUrls.",
+                    },
+                ),
+                "prompt_args_json": (
+                    "STRING",
+                    {
+                        "multiline": True,
+                        "default": "[]",
+                        "tooltip": "Optional prompt args JSON array merged into prompt.args.",
+                    },
+                ),
+                "poll_interval": ("INT", {"default": 3, "min": 1, "max": 60, "step": 1}),
+                "timeout_seconds": ("INT", {"default": 600, "min": 30, "max": 3600, "step": 30}),
+                "extra_json": (
+                    "STRING",
+                    {
+                        "multiline": True,
+                        "default": "",
+                        "tooltip": "Optional raw JSON merged into the generateByPromptV2 payload.",
+                    },
+                ),
+            },
+        }
+
+    RETURN_TYPES = ("IMAGE", "STRING", "STRING", "STRING")
+    RETURN_NAMES = ("images", "image_urls", "asset_record_id", "raw_response")
+    FUNCTION = "run"
+    CATEGORY = MANGO_CATEGORY
+
+    def run(
+        self,
+        prompt,
+        mango_access_key="",
+        mango_secret_key="",
+        base_url="",
+        model="Wan2.7-image-pro (35)",
+        style_id=35,
+        ratio="16:9",
+        resolution="2K",
+        nums=1,
+        seed=-1,
+        img_urls="",
+        prompt_args_json="[]",
+        poll_interval=3,
+        timeout_seconds=600,
+        extra_json="",
+    ):
+        access_key = _load_mango_access_key(mango_access_key)
+        secret_key = _load_mango_secret_key(mango_secret_key)
+        base_url = _load_mango_base_url(base_url)
+
+        style_from_model = str(model).rsplit("(", 1)[-1].rstrip(")")
+        resolved_style_id = int(style_from_model) if style_from_model.isdigit() else int(style_id)
+
+        reference_urls = [
+            line.strip()
+            for line in str(img_urls).replace(",", "\n").splitlines()
+            if line.strip()
+        ]
+        if len(reference_urls) > 6:
+            raise ValueError("Mango Wan2.7 supports at most 6 reference images.")
+
+        if prompt_args_json and prompt_args_json.strip():
+            try:
+                prompt_args = json.loads(prompt_args_json)
+            except json.JSONDecodeError as exc:
+                raise ValueError(f"prompt_args_json is not valid JSON: {exc}") from exc
+            if not isinstance(prompt_args, list):
+                raise ValueError("prompt_args_json must decode to a JSON array.")
+        else:
+            prompt_args = []
+
+        payload = {
+            "styleId": resolved_style_id,
+            "ratio": ratio,
+            "resolution": resolution,
+            "nums": int(nums),
+            "imgUrls": reference_urls,
+            "prompt": {
+                "args": prompt_args,
+                "prompt": prompt,
+            },
+        }
+        if int(seed) >= 0:
+            payload["seed"] = int(seed)
+
+        if extra_json and extra_json.strip():
+            try:
+                extra_payload = json.loads(extra_json)
+            except json.JSONDecodeError as exc:
+                raise ValueError(f"extra_json is not valid JSON: {exc}") from exc
+            if not isinstance(extra_payload, dict):
+                raise ValueError("extra_json must decode to a JSON object.")
+            payload.update(extra_payload)
+
+        print(f"[Mango Wan2.7] Submitting to {base_url}/openapi/v1/storyboard/generateByPromptV2...")
+        submit_result, submit_request_id = _post_mango_json(
+            access_key,
+            secret_key,
+            base_url,
+            "openapi/v1/storyboard/generateByPromptV2",
+            payload,
+        )
+        record_id = _mango_record_id(submit_result)
+        print(f"[Mango Wan2.7] Asset record id: {record_id}. Polling asset info...")
+        asset_result, asset_request_id = _poll_mango_asset(
+            access_key,
+            secret_key,
+            base_url,
+            record_id,
+            poll_interval,
+            timeout_seconds,
+        )
+        urls = _mango_asset_urls(asset_result)
+        images = _download_images(urls)
+        raw_response = json.dumps(
+            {
+                "submit": submit_result,
+                "asset": asset_result,
+                "request_id": asset_request_id or submit_request_id,
+            },
+            ensure_ascii=False,
+        )
+        print(f"[Mango Wan2.7] Done -> {len(urls)} image(s)")
+        return (images, "\n".join(urls), record_id, raw_response)
+
+
 class GridCropImages:
     """
     Split each input image into a row-major grid and return all tiles as one IMAGE batch.
@@ -1210,6 +1662,9 @@ NODE_CLASS_MAPPINGS = {
     "JimengApiKey":           JimengApiKey,
     "JimengBaseUrl":          JimengBaseUrl,
     "JimengSeedreamImage":    JimengSeedreamImage,
+    "MangoAIGCCredentials":   MangoAIGCCredentials,
+    "MangoAIGCBaseUrl":       MangoAIGCBaseUrl,
+    "MangoWan27TextToImage":  MangoWan27TextToImage,
     "GridCropImages":         GridCropImages,
 }
 
@@ -1221,5 +1676,8 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "JimengApiKey":           "🔑 Jimeng API Key",
     "JimengBaseUrl":          "🌐 Jimeng Base URL",
     "JimengSeedreamImage":    "🖼️ Jimeng Seedream Image",
+    "MangoAIGCCredentials":   "🔑 Mango AIGC Credentials",
+    "MangoAIGCBaseUrl":       "🌐 Mango AIGC Base URL",
+    "MangoWan27TextToImage":  "🖼️ Mango Wan2.7 Text to Image",
     "GridCropImages":         "✂️ Grid Crop Images",
 }
