@@ -1551,11 +1551,11 @@ class GridCropImages:
                 "image": ("IMAGE",),
                 "cols": ("INT", {"default": 4, "min": 1, "max": 128, "step": 1}),
                 "rows": ("INT", {"default": 4, "min": 1, "max": 128, "step": 1}),
+                "fit_mode": (["pad_edge", "crop_remainder"], {"default": "pad_edge"}),
                 "col_start_offset": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 1}),
                 "col_end_offset": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 1}),
                 "row_start_offset": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 1}),
                 "row_end_offset": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 1}),
-                "fit_mode": (["pad_edge", "crop_remainder"], {"default": "pad_edge"}),
             },
             "optional": {
                 "mask": ("MASK",),
@@ -1572,11 +1572,11 @@ class GridCropImages:
         image,
         cols=4,
         rows=4,
+        fit_mode="pad_edge",
         col_start_offset=0,
         col_end_offset=0,
         row_start_offset=0,
         row_end_offset=0,
-        fit_mode="pad_edge",
         mask=None,
     ):
         cols = int(cols)
