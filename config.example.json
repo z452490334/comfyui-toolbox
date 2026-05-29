@@ -6,5 +6,7 @@
   "mango_access_key": "YOUR_MANGO_AIGC_ACCESS_KEY",
   "mango_secret_key": "YOUR_MANGO_AIGC_SECRET_KEY",
   "mango_base_url": "https://aigc.mgtv.com",
+  "helloimg_token": "YOUR_HELLOIMG_TOKEN",
+  "helloimg_base_url": "https://www.helloimg.com/api/v1",
   "user_agent": "gpt-image-2-comfyui/1.0"
 }

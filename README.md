@@ -31,6 +31,7 @@ GPT-Image-2 uses OpenAI-compatible GPT Image models with native image editing su
 | 🖼️ Jimeng Seedream Image | Generate or edit images with exposed Seedream image parameters |
 | 🔑 Mango AIGC Credentials | Set Mango AIGC access and secret keys for Wan2.7 nodes |
 | 🌐 Mango AIGC Base URL | Set the Mango AIGC API base URL |
+| 🔑 Hello Image Host Token | Set a Hello image host token for Wan2.7 reference uploads |
 | 🖼️ Mango Wan2.7 Text to Image | Generate images with Mango AIGC Wan2.7 image models |
 | ✂️ Grid Crop Images | Split images into a configurable cols x rows grid |
 
@@ -93,6 +94,8 @@ The easiest persistent setup is to create `config.json` in this plugin directory
   "mango_access_key": "YOUR_MANGO_AIGC_ACCESS_KEY",
   "mango_secret_key": "YOUR_MANGO_AIGC_SECRET_KEY",
   "mango_base_url": "https://aigc.mgtv.com",
+  "helloimg_token": "YOUR_HELLOIMG_TOKEN",
+  "helloimg_base_url": "https://www.helloimg.com/api/v1",
   "user_agent": "gpt-image-2-comfyui/1.0"
 }
 ```
@@ -117,6 +120,8 @@ JIMENG_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
 MANGO_ACCESS_KEY=your-mango-aigc-access-key
 MANGO_SECRET_KEY=your-mango-aigc-secret-key
 MANGO_BASE_URL=https://aigc.mgtv.com
+HELLOIMG_TOKEN=your-helloimg-token
+HELLOIMG_BASE_URL=https://www.helloimg.com/api/v1
 ```
 
 **Output:** `base_url` string (wire to generation nodes)
@@ -238,6 +243,8 @@ Generate images through Mango AIGC's storyboard image API. The node submits `POS
 | `prompt` | Text prompt for Wan2.7 image generation |
 | `mango_access_key`, `mango_secret_key` | *(optional)* Mango AIGC credentials — wire from the Credentials node or leave blank |
 | `base_url` | *(optional)* Mango AIGC API base URL, default `https://aigc.mgtv.com` |
+| `helloimg_token` | *(optional)* Hello image host token used when local IMAGE inputs are connected |
+| `helloimg_base_url` | *(optional)* Hello API base URL, default `https://www.helloimg.com/api/v1` |
 | `model` | `Wan2.7-image-pro (35)` or `Wan2.7-image (34)` |
 | `style_id` | Manual style ID fallback; model selection takes precedence |
 | `ratio` | Output aspect ratio such as `16:9`, `1:1`, or `9:16` |
@@ -245,6 +252,7 @@ Generate images through Mango AIGC's storyboard image API. The node submits `POS
 | `nums` | Number of images to request, 1-4 |
 | `seed` | Reproducibility seed; `-1` omits the parameter |
 | `img_urls` | Optional reference image URLs, one per line, sent as `imgUrls` |
+| `image_1` … `image_6` | Optional local reference images. The node uploads them to Hello image host first, with a fixed 1-hour expiry, then sends the returned URLs as `imgUrls` |
 | `prompt_args_json` | Optional JSON array sent as `prompt.args` |
 | `poll_interval`, `timeout_seconds` | Asset polling cadence and timeout |
 | `extra_json` | Raw JSON object merged into the request payload |

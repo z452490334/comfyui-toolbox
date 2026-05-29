@@ -30,6 +30,7 @@ CONFIG_PATHS = (PLUGIN_CONFIG_PATH, LEGACY_CONFIG_PATH)
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 DEFAULT_JIMENG_BASE_URL = "https://ark.cn-beijing.volces.com/api/v3"
 DEFAULT_MANGO_BASE_URL = "https://aigc.mgtv.com"
+DEFAULT_HELLOIMG_BASE_URL = "https://www.helloimg.com/api/v1"
 DEFAULT_USER_AGENT = "gpt-image-2-comfyui/1.0"
 TOOLBOX_CATEGORY = "⭐ Toolbox"
 GPT_IMAGE_CATEGORY = f"{TOOLBOX_CATEGORY}/GPT-Image-2"
@@ -303,6 +304,44 @@ def _load_mango_base_url(base_url_input=""):
     return DEFAULT_MANGO_BASE_URL
 
 
+def _load_helloimg_token(token_input):
+    if token_input and token_input.strip():
+        return token_input.strip()
+
+    for env_name in ("HELLOIMG_TOKEN", "HELLO_IMAGE_TOKEN"):
+        env_key = os.environ.get(env_name, "").strip()
+        if env_key:
+            return env_key
+
+    for key in ("helloimg_token", "hello_image_token"):
+        value = _load_config_value(key)
+        if value:
+            return value
+
+    raise RuntimeError(
+        "No Hello image host token found. Paste it into helloimg_token, "
+        "set HELLOIMG_TOKEN/HELLO_IMAGE_TOKEN, or add helloimg_token to config.json. "
+        f"Checked config files: {_config_status_message()}"
+    )
+
+
+def _load_helloimg_base_url(base_url_input=""):
+    if base_url_input and base_url_input.strip():
+        return base_url_input.strip().rstrip("/")
+
+    for env_name in ("HELLOIMG_BASE_URL", "HELLO_IMAGE_BASE_URL"):
+        env_url = os.environ.get(env_name, "").strip()
+        if env_url:
+            return env_url.rstrip("/")
+
+    for key in ("helloimg_base_url", "hello_image_base_url"):
+        value = _load_config_value(key)
+        if value:
+            return value.rstrip("/")
+
+    return DEFAULT_HELLOIMG_BASE_URL
+
+
 def _load_user_agent():
     env_user_agent = os.environ.get("OPENAI_USER_AGENT", "").strip()
     if env_user_agent:
@@ -542,6 +581,74 @@ def _post_mango_json(access_key, secret_key, base_url, endpoint, payload):
     )
     _check(resp)
     return resp.json(), _request_id(resp)
+
+
+def _helloimg_expired_at(hours=1):
+    return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time() + hours * 3600))
+
+
+def _helloimg_image_url(result):
+    if not isinstance(result, dict):
+        raise RuntimeError(f"Hello image host response is not a JSON object: {result}")
+
+    status = result.get("status")
+    success = result.get("success")
+    if status in (False, "false") or success in (False, "false"):
+        message = result.get("message") or result.get("msg") or result.get("error") or result
+        raise RuntimeError(f"Hello image host upload failed: {message}")
+    if status not in (None, True, "true", 200, "200") and success not in (None, True, "true"):
+        message = result.get("message") or result.get("msg") or result.get("error") or result
+        raise RuntimeError(f"Hello image host upload failed: {message}")
+
+    data = result.get("data") or result
+    if isinstance(data, dict):
+        links = data.get("links")
+        if isinstance(links, dict):
+            for key in ("url", "html", "markdown", "delete_url"):
+                value = links.get(key)
+                if value and key == "url":
+                    return str(value)
+        for key in ("url", "image_url", "src"):
+            value = data.get(key)
+            if value:
+                return str(value)
+
+    raise RuntimeError(f"No uploaded image URL in Hello image host response: {result}")
+
+
+def _upload_helloimg_image(image_tensor, token, base_url):
+    filename, file_obj, mime_type = _image_tensor_to_file_tuple(image_tensor, "reference.png")
+    try:
+        resp = requests.post(
+            f"{base_url}/upload",
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Accept": "application/json",
+                "User-Agent": _load_user_agent(),
+            },
+            data={
+                "permission": 1,
+                "expired_at": _helloimg_expired_at(1),
+            },
+            files={
+                "file": (filename, file_obj, mime_type),
+            },
+            timeout=120,
+        )
+    finally:
+        file_obj.close()
+    _check(resp)
+    return _helloimg_image_url(resp.json()), resp.json()
+
+
+def _upload_helloimg_images(image_tensors, token, base_url):
+    urls = []
+    responses = []
+    for image_tensor in image_tensors:
+        url, response = _upload_helloimg_image(image_tensor, token, base_url)
+        urls.append(url)
+        responses.append(response)
+    return urls, responses
 
 
 def _mango_record_id(result):
@@ -1376,6 +1483,35 @@ class MangoAIGCBaseUrl:
         return (_load_mango_base_url(base_url),)
 
 
+class HelloImgToken:
+    """
+    Store a Hello image host token once and wire it to Wan2.7 uploads.
+    """
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "helloimg_token": (
+                    "STRING",
+                    {
+                        "multiline": False,
+                        "default": "",
+                        "tooltip": "Hello image host API token.",
+                    },
+                ),
+            }
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("helloimg_token",)
+    FUNCTION = "run"
+    CATEGORY = MANGO_CATEGORY
+
+    def run(self, helloimg_token):
+        return (_load_helloimg_token(helloimg_token),)
+
+
 class MangoWan27TextToImage:
     """
     Mango AIGC Wan2.7 text-to-image.
@@ -1401,6 +1537,11 @@ class MangoWan27TextToImage:
                 "mango_access_key": ("STRING", {"multiline": False, "default": ""}),
                 "mango_secret_key": ("STRING", {"multiline": False, "default": ""}),
                 "base_url": ("STRING", {"multiline": False, "default": ""}),
+                "helloimg_token": ("STRING", {"multiline": False, "default": ""}),
+                "helloimg_base_url": (
+                    "STRING",
+                    {"multiline": False, "default": ""},
+                ),
                 "model": (MANGO_WAN27_STYLE_OPTIONS, {"default": "Wan2.7-image-pro (35)"}),
                 "style_id": ("INT", {"default": 35, "min": 1, "max": 9999, "step": 1}),
                 "ratio": (MANGO_RATIO_OPTIONS, {"default": "16:9"}),
@@ -1425,6 +1566,12 @@ class MangoWan27TextToImage:
                 ),
                 "poll_interval": ("INT", {"default": 3, "min": 1, "max": 60, "step": 1}),
                 "timeout_seconds": ("INT", {"default": 600, "min": 30, "max": 3600, "step": 30}),
+                "image_1": ("IMAGE",),
+                "image_2": ("IMAGE",),
+                "image_3": ("IMAGE",),
+                "image_4": ("IMAGE",),
+                "image_5": ("IMAGE",),
+                "image_6": ("IMAGE",),
                 "extra_json": (
                     "STRING",
                     {
@@ -1447,6 +1594,8 @@ class MangoWan27TextToImage:
         mango_access_key="",
         mango_secret_key="",
         base_url="",
+        helloimg_token="",
+        helloimg_base_url="",
         model="Wan2.7-image-pro (35)",
         style_id=35,
         ratio="16:9",
@@ -1457,6 +1606,12 @@ class MangoWan27TextToImage:
         prompt_args_json="[]",
         poll_interval=3,
         timeout_seconds=600,
+        image_1=None,
+        image_2=None,
+        image_3=None,
+        image_4=None,
+        image_5=None,
+        image_6=None,
         extra_json="",
     ):
         access_key = _load_mango_access_key(mango_access_key)
@@ -1471,6 +1626,24 @@ class MangoWan27TextToImage:
             for line in str(img_urls).replace(",", "\n").splitlines()
             if line.strip()
         ]
+
+        upload_images = [
+            image
+            for image in (image_1, image_2, image_3, image_4, image_5, image_6)
+            if image is not None
+        ]
+        upload_responses = []
+        if upload_images:
+            token = _load_helloimg_token(helloimg_token)
+            upload_base_url = _load_helloimg_base_url(helloimg_base_url)
+            print(f"[Mango Wan2.7] Uploading {len(upload_images)} reference image(s) to Hello image host...")
+            uploaded_urls, upload_responses = _upload_helloimg_images(
+                upload_images,
+                token,
+                upload_base_url,
+            )
+            reference_urls.extend(uploaded_urls)
+
         if len(reference_urls) > 6:
             raise ValueError("Mango Wan2.7 supports at most 6 reference images.")
 
@@ -1531,6 +1704,7 @@ class MangoWan27TextToImage:
             {
                 "submit": submit_result,
                 "asset": asset_result,
+                "uploaded_reference_images": upload_responses,
                 "request_id": asset_request_id or submit_request_id,
             },
             ensure_ascii=False,
@@ -1703,6 +1877,7 @@ NODE_CLASS_MAPPINGS = {
     "JimengSeedreamImage":    JimengSeedreamImage,
     "MangoAIGCCredentials":   MangoAIGCCredentials,
     "MangoAIGCBaseUrl":       MangoAIGCBaseUrl,
+    "HelloImgToken":          HelloImgToken,
     "MangoWan27TextToImage":  MangoWan27TextToImage,
     "GridCropImages":         GridCropImages,
 }
@@ -1717,6 +1892,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "JimengSeedreamImage":    "🖼️ Jimeng Seedream Image",
     "MangoAIGCCredentials":   "🔑 Mango AIGC Credentials",
     "MangoAIGCBaseUrl":       "🌐 Mango AIGC Base URL",
+    "HelloImgToken":          "🔑 Hello Image Host Token",
     "MangoWan27TextToImage":  "🖼️ Mango Wan2.7 Text to Image",
     "GridCropImages":         "✂️ Grid Crop Images",
 }
