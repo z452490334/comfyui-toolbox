@@ -1551,6 +1551,10 @@ class GridCropImages:
                 "image": ("IMAGE",),
                 "cols": ("INT", {"default": 4, "min": 1, "max": 128, "step": 1}),
                 "rows": ("INT", {"default": 4, "min": 1, "max": 128, "step": 1}),
+                "col_start_offset": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 1}),
+                "col_end_offset": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 1}),
+                "row_start_offset": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 1}),
+                "row_end_offset": ("INT", {"default": 0, "min": 0, "max": 16384, "step": 1}),
                 "fit_mode": (["pad_edge", "crop_remainder"], {"default": "pad_edge"}),
             },
             "optional": {
@@ -1563,11 +1567,30 @@ class GridCropImages:
     FUNCTION = "crop"
     CATEGORY = IMAGE_CATEGORY
 
-    def crop(self, image, cols=4, rows=4, fit_mode="pad_edge", mask=None):
+    def crop(
+        self,
+        image,
+        cols=4,
+        rows=4,
+        col_start_offset=0,
+        col_end_offset=0,
+        row_start_offset=0,
+        row_end_offset=0,
+        fit_mode="pad_edge",
+        mask=None,
+    ):
         cols = int(cols)
         rows = int(rows)
         if cols < 1 or rows < 1:
             raise ValueError("cols and rows must be >= 1.")
+
+        col_start_offset = int(col_start_offset)
+        col_end_offset = int(col_end_offset)
+        row_start_offset = int(row_start_offset)
+        row_end_offset = int(row_end_offset)
+        offsets = (col_start_offset, col_end_offset, row_start_offset, row_end_offset)
+        if any(offset < 0 for offset in offsets):
+            raise ValueError("Grid crop offsets must be >= 0.")
 
         if image.dim() == 3:
             image = image.unsqueeze(0)
@@ -1576,6 +1599,22 @@ class GridCropImages:
 
         batch, height, width, channels = image.shape
         mask = self._normalize_mask(mask, batch, height, width, image.device, image.dtype)
+
+        crop_left = col_start_offset
+        crop_right = width - col_end_offset
+        crop_top = row_start_offset
+        crop_bottom = height - row_end_offset
+        if crop_left >= crop_right or crop_top >= crop_bottom:
+            raise ValueError(
+                f"Grid crop offsets leave no image area: image size {width}x{height}, "
+                f"col offsets {col_start_offset}/{col_end_offset}, "
+                f"row offsets {row_start_offset}/{row_end_offset}."
+            )
+
+        if any(offsets):
+            image = image[:, crop_top:crop_bottom, crop_left:crop_right, :]
+            mask = mask[:, crop_top:crop_bottom, crop_left:crop_right]
+            batch, height, width, channels = image.shape
 
         if fit_mode == "crop_remainder":
             if height < rows or width < cols:

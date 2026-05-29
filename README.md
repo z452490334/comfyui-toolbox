@@ -263,6 +263,10 @@ Split each input image into a configurable grid. The output `images` is an IMAGE
 | `mask` | Optional MASK input, for workflows where alpha is carried separately from IMAGE |
 | `cols` | Number of columns |
 | `rows` | Number of rows |
+| `col_start_offset` | Pixels to skip from the left before splitting the grid |
+| `col_end_offset` | Pixels to skip from the right before splitting the grid |
+| `row_start_offset` | Pixels to skip from the top before splitting the grid |
+| `row_end_offset` | Pixels to skip from the bottom before splitting the grid |
 | `fit_mode` | `pad_edge` pads the right/bottom edge so every tile has the same size; `crop_remainder` drops non-divisible right/bottom pixels |
 
 **Outputs:** split images as an IMAGE batch, plus `tile_width`, `tile_height`, and cropped `masks`.
